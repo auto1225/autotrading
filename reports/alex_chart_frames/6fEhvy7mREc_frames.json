@@ -1,0 +1,281 @@
+{
+  "id": "6fEhvy7mREc",
+  "title": "해외에서 돈 쓸어 담는다는 트레이딩 기법 feat. 팀멘사",
+  "url": "https://www.youtube.com/watch?v=6fEhvy7mREc",
+  "frames": [
+    {
+      "second": 1.0,
+      "time": "00:00:01",
+      "reason": "intro-4-count",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "하나 둘 셋 입고 이제 넷을 기다리면",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\01_000001.jpg",
+      "metrics": {
+        "edgeDensity": 0.0468,
+        "saturation": 0.037,
+        "brightness": 0.9018
+      }
+    },
+    {
+      "second": 225.0,
+      "time": "00:03:45",
+      "reason": "0.5-value-zone",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "0.5 레벨이 있을 거예요.이 0.5",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\02_000225.jpg",
+      "metrics": {
+        "edgeDensity": 0.072,
+        "saturation": 0.0302,
+        "brightness": 0.7729
+      }
+    },
+    {
+      "second": 256.0,
+      "time": "00:04:16",
+      "reason": "stop-zone",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": ">> 그러면 손절은 손절이라고 하는 건",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\03_000256.jpg",
+      "metrics": {
+        "edgeDensity": 0.1092,
+        "saturation": 0.1839,
+        "brightness": 0.5049
+      }
+    },
+    {
+      "second": 304.0,
+      "time": "00:05:04",
+      "reason": "timeline-evidence",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 그러면 여기 0.5의 평균을 놓고",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\04_000304.jpg",
+      "metrics": {
+        "edgeDensity": 0.069,
+        "saturation": 0.0297,
+        "brightness": 0.7711
+      }
+    },
+    {
+      "second": 340.0,
+      "time": "00:05:40",
+      "reason": "timeline-evidence",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "저점 이렇게 있잖아요. 그 평균 값을",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\05_000340.jpg",
+      "metrics": {
+        "edgeDensity": 0.0641,
+        "saturation": 0.03,
+        "brightness": 0.7726
+      }
+    },
+    {
+      "second": 389.0,
+      "time": "00:06:29",
+      "reason": "timeline-evidence",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "캔들 몸통으로 닫치면은 우리한테",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\06_000389.jpg",
+      "metrics": {
+        "edgeDensity": 0.0735,
+        "saturation": 0.029,
+        "brightness": 0.763
+      }
+    },
+    {
+      "second": 431.0,
+      "time": "00:07:11",
+      "reason": "timeline-evidence",
+      "categories": [
+        "value_zone",
+        "entry_trigger"
+      ],
+      "snippet": "거는이 우리가 0.5레벨에서 진입 첫",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\07_000431.jpg",
+      "metrics": {
+        "edgeDensity": 0.0617,
+        "saturation": 0.0377,
+        "brightness": 0.8909
+      }
+    },
+    {
+      "second": 465.0,
+      "time": "00:07:45",
+      "reason": "4-count-entry",
+      "categories": [
+        "four_count_confirmation",
+        "risk_invalidation"
+      ],
+      "snippet": "하나 둘 이게 깨지잖아요.",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\08_000465.jpg",
+      "metrics": {
+        "edgeDensity": 0.0422,
+        "saturation": 0.0351,
+        "brightness": 0.9097
+      }
+    },
+    {
+      "second": 492.0,
+      "time": "00:08:12",
+      "reason": "entry-example",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "넷. 진입.",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\09_000492.jpg",
+      "metrics": {
+        "edgeDensity": 0.0519,
+        "saturation": 0.0359,
+        "brightness": 0.8987
+      }
+    },
+    {
+      "second": 528.0,
+      "time": "00:08:48",
+      "reason": "timeline-evidence",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 기다려야 되는데 기다릴 수",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\10_000528.jpg",
+      "metrics": {
+        "edgeDensity": 0.1115,
+        "saturation": 0.1761,
+        "brightness": 0.4956
+      }
+    },
+    {
+      "second": 564.0,
+      "time": "00:09:24",
+      "reason": "timeline-evidence",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "오티나 전체 평균을 정하는 거 이거는",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\11_000564.jpg",
+      "metrics": {
+        "edgeDensity": 0.1142,
+        "saturation": 0.2114,
+        "brightness": 0.4919
+      }
+    },
+    {
+      "second": 650.0,
+      "time": "00:10:50",
+      "reason": "liquidity-checklist",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": "유동성 세 번째 우리가이 포이이",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\12_000650.jpg",
+      "metrics": {
+        "edgeDensity": 0.0525,
+        "saturation": 0.0362,
+        "brightness": 0.8891
+      }
+    },
+    {
+      "second": 668.0,
+      "time": "00:11:08",
+      "reason": "checklist-4-count",
+      "categories": [
+        "entry_trigger",
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 예 알람 맞추고 이게 하나 둘 셋",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\13_000668.jpg",
+      "metrics": {
+        "edgeDensity": 0.0561,
+        "saturation": 0.0369,
+        "brightness": 0.8862
+      }
+    },
+    {
+      "second": 759.0,
+      "time": "00:12:39",
+      "reason": "timeline-evidence",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "같고 각 세션별로 일어나는 변동성",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\14_000759.jpg",
+      "metrics": {
+        "edgeDensity": 0.097,
+        "saturation": 0.1792,
+        "brightness": 0.515
+      }
+    },
+    {
+      "second": 851.0,
+      "time": "00:14:11",
+      "reason": "session-timeframe",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 세션이 열릴 때 또 변동성이",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\15_000851.jpg",
+      "metrics": {
+        "edgeDensity": 0.0739,
+        "saturation": 0.0381,
+        "brightness": 0.7553
+      }
+    },
+    {
+      "second": 916.0,
+      "time": "00:15:16",
+      "reason": "session-entry",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입하기 위해서 변한 깔끔한",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\16_000916.jpg",
+      "metrics": {
+        "edgeDensity": 0.0778,
+        "saturation": 0.0378,
+        "brightness": 0.7364
+      }
+    },
+    {
+      "second": 965.0,
+      "time": "00:16:05",
+      "reason": "timeline-evidence",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 어 그럼 오전에 아시아장 열릴 때",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\17_000965.jpg",
+      "metrics": {
+        "edgeDensity": 0.1058,
+        "saturation": 0.1922,
+        "brightness": 0.5735
+      }
+    },
+    {
+      "second": 1093.0,
+      "time": "00:18:13",
+      "reason": "0.5-wrap-up",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 그것도 결국 0.5으로 돌아온다.",
+      "path": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc\\18_001093.jpg",
+      "metrics": {
+        "edgeDensity": 0.097,
+        "saturation": 0.1984,
+        "brightness": 0.55
+      }
+    }
+  ],
+  "contact_sheet": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc_contact_sheet.jpg"
+}

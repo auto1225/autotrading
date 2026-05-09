@@ -1,0 +1,146 @@
+{
+  "schema": "maeuknam_decision_structure.v1",
+  "id": "qilbo3JMRxk",
+  "title": "[2023.11.01] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #bitcoin #btc #chartanalysis",
+  "url": "https://www.youtube.com/watch?v=qilbo3JMRxk",
+  "duration": 1729.097125,
+  "model": "tiny",
+  "bias": {
+    "primary_bias": "UNCLEAR",
+    "long_score": 0,
+    "short_score": 0,
+    "explanation": "방향 표현이 충분하지 않아 이 영상만으로 방향을 확정하기 어렵습니다."
+  },
+  "trade_readiness": {
+    "level": "LEARNING_ONLY",
+    "score": 0,
+    "reason": "매매 실행 조건보다 시장 설명이나 회고 비중이 높아 직접 규칙화하기 어렵습니다."
+  },
+  "category_hits": {
+    "market_context": 4,
+    "direction_judgment": 0,
+    "chart_structure": 0,
+    "entry_trigger": 0,
+    "stop_invalidation": 0,
+    "take_profit_exit": 1,
+    "timeframe": 0,
+    "wave_position": 0
+  },
+  "sections": {
+    "market_context": {
+      "hits": 4,
+      "summary": "시장 배경 언급이 4회 잡혔고, 대표 구간은 '안 나와서 삼각수름에 하방을 돌리면 전 시장가로'입니다.",
+      "evidence": [
+        {
+          "time": "00:13:58",
+          "start": 838.58,
+          "score": 1,
+          "text": "안 나와서 삼각수름에 하방을 돌리면 전 시장가로"
+        },
+        {
+          "time": "00:19:27",
+          "start": 1167.66,
+          "score": 1,
+          "text": "와 형만의 정보를 얻는 파이프라이 있는지 궁금해요 자금더니 지마 디테일하게 알고 싶어요 감사합니다"
+        },
+        {
+          "time": "00:19:31",
+          "start": 1171.26,
+          "score": 1,
+          "text": "형만의 정보를 얻는 파이프라이 있는지 궁금해요 자금더니 지마 디테일하게 알고 싶어요 감사합니다 저는"
+        },
+        {
+          "time": "00:21:53",
+          "start": 1313.23,
+          "score": 1,
+          "text": "놀리적이 없다는 게 없다는 게 인정을 하고 그 방법을 제가 채택해서 쓰는 거고 근데 그렇지 않았다 시장을 여치고 못 했다 틀렸다고 할지"
+        }
+      ]
+    },
+    "direction_judgment": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "chart_structure": {
+      "hits": 0,
+      "summary": "고점/저점, 지지/저항, 채널/라인 같은 구조 판단이 0회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:15:26",
+          "start": 926.26,
+          "score": 3,
+          "text": "그리고 작은 분봉으로 봐도 그런 것들이 있거든요 그래서 비티가 고점치고"
+        }
+      ]
+    },
+    "entry_trigger": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "stop_invalidation": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "take_profit_exit": {
+      "hits": 1,
+      "summary": "수익 실현/청산 언급이 1회 잡혔습니다. 목표 도달 후 분할 또는 정리 맥락을 확인해야 합니다.",
+      "evidence": [
+        {
+          "time": "00:12:49",
+          "start": 769.5,
+          "score": 3,
+          "text": "유의하고 있지 않으면 한 번에 가게 폭막하면서 포지션이 청산될 수도 있고"
+        }
+      ]
+    },
+    "timeframe": {
+      "hits": 0,
+      "summary": "분봉/시간봉/일봉 등 시간 프레임 언급이 0회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:15:26",
+          "start": 926.26,
+          "score": 3,
+          "text": "그리고 작은 분봉으로 봐도 그런 것들이 있거든요 그래서 비티가 고점치고"
+        }
+      ]
+    },
+    "wave_position": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    }
+  },
+  "scenario_plan": {
+    "entry_if": "방향 근거가 약하므로 이 영상은 바로 진입 신호로 쓰지 않는다.",
+    "invalidated_if": "구조, 진입, 손절 중 하나라도 비어 있으면 매매 규칙 후보에서 제외한다.",
+    "stop_logic": "손절 근거가 부족하므로 별도 차트 검증 없이는 진입하지 않는다.",
+    "target_logic": "익절 근거가 부족하므로 목표가 없이 진입하지 않는다.",
+    "avoid_if": "손절 거리가 멀거나, 구조 확인 없이 단어 하나만으로 방향을 정해야 하는 구간은 피한다."
+  },
+  "algorithm_rules": [
+    {
+      "name": "structure_first",
+      "rule": "방향 신호보다 지지/저항/채널/고점저점 구조 확인을 우선한다.",
+      "reason": "차트 구조 히트 0회"
+    },
+    {
+      "name": "stop_before_entry",
+      "rule": "진입 전에 손절/무효화 가격을 먼저 계산하고, 손절 폭이 크면 거래하지 않는다.",
+      "reason": "손절/무효화 히트 0회"
+    },
+    {
+      "name": "conditional_aggression",
+      "rule": "공격적 진입은 구조, 진입조건, 손절조건이 동시에 잡힌 ACTIONABLE 영상 패턴에서만 허용한다.",
+      "reason": "현재 판정 LEARNING_ONLY"
+    }
+  ],
+  "quality_flags": [
+    "진입 조건 근거가 부족합니다.",
+    "손절/무효화 조건 근거가 부족합니다.",
+    "차트 구조 근거가 약합니다. 영상 프레임 확인이 필요합니다."
+  ]
+}

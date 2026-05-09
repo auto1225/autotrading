@@ -1,0 +1,175 @@
+{
+  "schema": "maeuknam_decision_structure.v1",
+  "id": "RbGQMA4yExE",
+  "title": "[2026.02.15] 비트코인 분석 #비트코인실시간방송",
+  "url": "https://www.youtube.com/watch?v=RbGQMA4yExE",
+  "duration": 3498.922125,
+  "model": "tiny",
+  "bias": {
+    "primary_bias": "UNCLEAR",
+    "long_score": 0,
+    "short_score": 0,
+    "explanation": "방향 표현이 충분하지 않아 이 영상만으로 방향을 확정하기 어렵습니다."
+  },
+  "trade_readiness": {
+    "level": "LEARNING_ONLY",
+    "score": 1,
+    "reason": "매매 실행 조건보다 시장 설명이나 회고 비중이 높아 직접 규칙화하기 어렵습니다."
+  },
+  "category_hits": {
+    "market_context": 8,
+    "direction_judgment": 0,
+    "chart_structure": 6,
+    "entry_trigger": 0,
+    "stop_invalidation": 1,
+    "take_profit_exit": 0,
+    "timeframe": 0,
+    "wave_position": 1
+  },
+  "sections": {
+    "market_context": {
+      "hits": 8,
+      "summary": "시장 배경 언급이 8회 잡혔고, 대표 구간은 '비트코인 매에 좋아잖아요. 비트마이는 이제 올려는 마인이 많이 인간다 할 때 비트코인'입니다.",
+      "evidence": [
+        {
+          "time": "00:29:58",
+          "start": 1798.7,
+          "score": 1,
+          "text": "1년 반성이야? 블록 피해 주요? 출근정기관료 낙제가 나오지 않을까요?"
+        },
+        {
+          "time": "00:30:01",
+          "start": 1801.9,
+          "score": 3,
+          "text": "출근정기관료 낙제가 나오지 않을까요? 제 리액션 스태스 사태? 출근정기관료 낙제가 왔는데 시장에 아무런 데 타고 없죠?"
+        },
+        {
+          "time": "00:38:57",
+          "start": 2337.98,
+          "score": 1,
+          "text": "50배가 이때 아 20배가 50만 4세 여러분 집달러 왔어요."
+        },
+        {
+          "time": "00:39:00",
+          "start": 2340.62,
+          "score": 1,
+          "text": "아 20배가 50만 4세 여러분 집달러 왔어요. 지금 40년 되겠습니다."
+        },
+        {
+          "time": "00:42:45",
+          "start": 2565.26,
+          "score": 4,
+          "text": "비트코인 매에 좋아잖아요. 비트마이는 이제 올려는 마인이 많이 인간다 할 때 비트코인"
+        },
+        {
+          "time": "00:46:34",
+          "start": 2794.96,
+          "score": 2,
+          "text": "기관이 들어왔던 이제 드러운 상태고. 그래서 그렇게 큰 저쪽으로 주지 않을 것 같아요. 기관들이 이 때부터 들어가면"
+        }
+      ]
+    },
+    "direction_judgment": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "chart_structure": {
+      "hits": 6,
+      "summary": "고점/저점, 지지/저항, 채널/라인 같은 구조 판단이 6회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:11:57",
+          "start": 717.38,
+          "score": 3,
+          "text": "조정 이훼해 신고점을"
+        },
+        {
+          "time": "00:17:05",
+          "start": 1025.38,
+          "score": 5,
+          "text": "추세 하단 떨어진 추세는"
+        }
+      ]
+    },
+    "entry_trigger": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "stop_invalidation": {
+      "hits": 1,
+      "summary": "손절/무효화 언급이 1회 잡혔습니다. 진입 전 리스크 위치를 먼저 보는 영상입니다.",
+      "evidence": [
+        {
+          "time": "00:17:15",
+          "start": 1035.58,
+          "score": 4,
+          "text": "바로 손절한데 이때 보면 손절이 엄청 타이트하죠"
+        }
+      ]
+    },
+    "take_profit_exit": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "timeframe": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "wave_position": {
+      "hits": 1,
+      "summary": "파동/조정 위치 언급이 1회 잡혔습니다. 방향보다 현재 파동 위치 해석이 중요합니다.",
+      "evidence": [
+        {
+          "time": "00:11:57",
+          "start": 717.38,
+          "score": 3,
+          "text": "조정 이훼해 신고점을"
+        },
+        {
+          "time": "00:12:18",
+          "start": 738.38,
+          "score": 3,
+          "text": "퍼스처럼 보이고 조정 이후에 이 구간도"
+        },
+        {
+          "time": "00:44:21",
+          "start": 2661.94,
+          "score": 4,
+          "text": "최소식 프로이상 조정이 있겠습니다. 코스프 피해 하시는 분들 조정은 10% 정도는 감소하세요."
+        }
+      ]
+    }
+  },
+  "scenario_plan": {
+    "entry_if": "방향 근거가 약하므로 이 영상은 바로 진입 신호로 쓰지 않는다.",
+    "invalidated_if": "구조, 진입, 손절 중 하나라도 비어 있으면 매매 규칙 후보에서 제외한다.",
+    "stop_logic": "손절선은 진입가가 아니라 시나리오가 틀렸다고 판단되는 구조선 기준으로 둔다.",
+    "target_logic": "익절 근거가 부족하므로 목표가 없이 진입하지 않는다.",
+    "avoid_if": "손절 거리가 멀거나, 구조 확인 없이 단어 하나만으로 방향을 정해야 하는 구간은 피한다."
+  },
+  "algorithm_rules": [
+    {
+      "name": "structure_first",
+      "rule": "방향 신호보다 지지/저항/채널/고점저점 구조 확인을 우선한다.",
+      "reason": "차트 구조 히트 6회"
+    },
+    {
+      "name": "stop_before_entry",
+      "rule": "진입 전에 손절/무효화 가격을 먼저 계산하고, 손절 폭이 크면 거래하지 않는다.",
+      "reason": "손절/무효화 히트 1회"
+    },
+    {
+      "name": "conditional_aggression",
+      "rule": "공격적 진입은 구조, 진입조건, 손절조건이 동시에 잡힌 ACTIONABLE 영상 패턴에서만 허용한다.",
+      "reason": "현재 판정 LEARNING_ONLY"
+    }
+  ],
+  "quality_flags": [
+    "진입 조건 근거가 부족합니다.",
+    "시간 프레임이 명확하지 않습니다."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "counters": {
+    "cycles": 30,
+    "issueCounts": {
+      "agency_veto": 10,
+      "execution_contradiction": 12,
+      "inverse_risk": 30
+    }
+  },
+  "endsAt": "2026-05-09T10:03:09.580307+00:00",
+  "lastFingerprint": "BTCUSDT::LONG::inverse_agency::True::::Maeuknam inverse agency entry: investment agency veto: 2/3 higher timeframes oppose card direction; execute LONG as card-failure confirmation::inverse_risk::",
+  "latestObservation": {
+    "actions": [],
+    "candidate": {
+      "entryAllowed": true,
+      "entryBlockReason": "Maeuknam inverse agency entry: investment agency veto: 2/3 higher timeframes oppose card direction; execute LONG as card-failure confirmation",
+      "entryStage": "inverse_agency",
+      "htf": {
+        "aligned": 1,
+        "missing": 0,
+        "neutral": 0,
+        "opposed": 2
+      },
+      "price": "79798.4",
+      "score": "0.6033",
+      "side": "LONG",
+      "symbol": "BTCUSDT",
+      "techniqueId": "inverse_agency_resistance_failure_short"
+    },
+    "entryBlockReason": "",
+    "fingerprint": "BTCUSDT::LONG::inverse_agency::True::::Maeuknam inverse agency entry: investment agency veto: 2/3 higher timeframes oppose card direction; execute LONG as card-failure confirmation::inverse_risk::",
+    "issues": [
+      {
+        "code": "inverse_risk",
+        "level": "warning",
+        "message": "Two or more higher timeframes oppose the current card direction."
+      }
+    ],
+    "observedAt": "2026-05-08T10:18:19.756971+00:00",
+    "paper": {
+      "equityUsdt": "942.4122245884778280809768071",
+      "feesPaidUsdt": "43.68575319746393713427285703",
+      "lastOrderAt": "2026-05-08T10:16:04.125406+00:00",
+      "openPositions": 1,
+      "orderCount": 9,
+      "realizedPnlUsdt": "-34.10232465972580180753047927",
+      "secondsSinceLastOrder": 135,
+      "walletBalanceUsdt": "941.6858282632031992354325795"
+    },
+    "resetAction": null
+  },
+  "name": "Maeuknam 24h Paper Agency",
+  "paths": {
+    "events": "reports\\maeuknam_24h_agency\\events.jsonl",
+    "report": "reports\\maeuknam_24h_agency\\report.md",
+    "status": "reports\\maeuknam_24h_agency\\status.json"
+  },
+  "startedAt": "2026-05-08T10:03:09.580307+00:00",
+  "updatedAt": "2026-05-08T10:18:19.756971+00:00"
+}

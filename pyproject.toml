@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "upbit-autotrader"
+version = "0.1.0"
+description = "페이퍼 매매를 기본값으로 둔 업비트 자동매매 시스템"
+requires-python = ">=3.11"
+readme = "README.md"
+authors = [{ name = "Codex" }]
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "websockets>=10.4",
+]
+
+[project.scripts]
+autotrading = "upbit_autotrader.cli:main"
+autotrading-web = "upbit_autotrader.web:main"
+upbit-autotrader = "upbit_autotrader.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+upbit_autotrader = ["web_static/*"]

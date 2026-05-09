@@ -1,0 +1,68 @@
+{
+  "counters": {
+    "cycles": 2621,
+    "issueCounts": {
+      "agency_veto": 1003,
+      "entry_block": 2131,
+      "execution_contradiction": 743,
+      "fee_drag": 2539,
+      "inverse_risk": 2210,
+      "no_trade_deadlock": 1864
+    }
+  },
+  "endsAt": "2026-05-08T09:07:57.567993+00:00",
+  "lastFingerprint": "BTCUSDT::LONG::::::manual futures paper mode is active until LONG/SHORT/STOP is pressed::::entry_block,fee_drag::",
+  "latestObservation": {
+    "actions": [],
+    "candidate": {
+      "entryAllowed": false,
+      "entryBlockReason": "",
+      "entryStage": "",
+      "htf": {
+        "aligned": 0,
+        "missing": 3,
+        "neutral": 0,
+        "opposed": 0
+      },
+      "price": "79895.2",
+      "score": "0.0391609791495936892019542955",
+      "side": "LONG",
+      "symbol": "BTCUSDT",
+      "techniqueId": ""
+    },
+    "entryBlockReason": "manual futures paper mode is active until LONG/SHORT/STOP is pressed",
+    "fingerprint": "BTCUSDT::LONG::::::manual futures paper mode is active until LONG/SHORT/STOP is pressed::::entry_block,fee_drag::",
+    "issues": [
+      {
+        "code": "entry_block",
+        "level": "warning",
+        "message": "manual futures paper mode is active until LONG/SHORT/STOP is pressed"
+      },
+      {
+        "code": "fee_drag",
+        "level": "warning",
+        "message": "fees 968.9982258239124729471633633 USDT are >= 5% of equity 184.2796085538788841617290141 USDT"
+      }
+    ],
+    "observedAt": "2026-05-08T10:02:29.017050+00:00",
+    "paper": {
+      "equityUsdt": "184.2796085538788841617290141",
+      "feesPaidUsdt": "968.9982258239124729471633633",
+      "lastOrderAt": "2026-05-08T09:19:32.909527+00:00",
+      "openPositions": 1,
+      "orderCount": 57,
+      "realizedPnlUsdt": "-319.8714474163070833408063293",
+      "secondsSinceLastOrder": 2576,
+      "walletBalanceUsdt": "191.7653340938800835209576539"
+    },
+    "resetAction": null
+  },
+  "name": "Maeuknam 24h Paper Agency",
+  "paths": {
+    "events": "reports\\maeuknam_24h_agency\\events.jsonl",
+    "report": "reports\\maeuknam_24h_agency\\report.md",
+    "status": "reports\\maeuknam_24h_agency\\status.json"
+  },
+  "startedAt": "2026-05-07T09:07:57.567993+00:00",
+  "updatedAt": "2026-05-08T10:02:29.017050+00:00"
+}

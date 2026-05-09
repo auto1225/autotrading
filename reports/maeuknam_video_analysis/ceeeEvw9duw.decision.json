@@ -1,0 +1,195 @@
+{
+  "schema": "maeuknam_decision_structure.v1",
+  "id": "ceeeEvw9duw",
+  "title": "[2023.10.28] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #bitcoin #btc #chartanalysis",
+  "url": "https://www.youtube.com/watch?v=ceeeEvw9duw",
+  "duration": 3464.138625,
+  "model": "tiny",
+  "bias": {
+    "primary_bias": "LONG",
+    "long_score": 3,
+    "short_score": 0,
+    "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+  },
+  "trade_readiness": {
+    "level": "LEARNING_ONLY",
+    "score": 1,
+    "reason": "매매 실행 조건보다 시장 설명이나 회고 비중이 높아 직접 규칙화하기 어렵습니다."
+  },
+  "category_hits": {
+    "market_context": 14,
+    "direction_judgment": 2,
+    "chart_structure": 1,
+    "entry_trigger": 1,
+    "stop_invalidation": 2,
+    "take_profit_exit": 1,
+    "timeframe": 0,
+    "wave_position": 1
+  },
+  "sections": {
+    "market_context": {
+      "hits": 14,
+      "summary": "시장 배경 언급이 14회 잡혔고, 대표 구간은 '대부분 비트코인이에요. 비트코인이에요. 기관의 돈이 비트코인의 점차 점차 점차 위빨 거기 때문에'입니다.",
+      "evidence": [
+        {
+          "time": "00:10:45",
+          "start": 645.04,
+          "score": 2,
+          "text": "왜냐하면 가짜뉴스가 나왔어요. 비트코인"
+        },
+        {
+          "time": "00:15:43",
+          "start": 943.71,
+          "score": 1,
+          "text": "한성해야 되고 앞으로 근데 어쨌든 30만 달러"
+        },
+        {
+          "time": "00:28:38",
+          "start": 1718.77,
+          "score": 1,
+          "text": "방분간은 조금 시장상에 좋지 않을까"
+        },
+        {
+          "time": "00:31:14",
+          "start": 1874.88,
+          "score": 7,
+          "text": "대부분 비트코인이에요. 비트코인이에요. 기관의 돈이 비트코인의 점차 점차 점차 위빨 거기 때문에"
+        },
+        {
+          "time": "00:31:37",
+          "start": 1897.4,
+          "score": 1,
+          "text": "토데가 마련이 된 거죠. 이 탭은은 아마요. 그래서 만약에 장기 투자를 생각하고 있다라고 하면 굳이 뉴스에 파라라 이런 필요가 없고 중기적으로 보더라도 어쨌든 이 탭은은 안다고 기관이"
+        },
+        {
+          "time": "00:45:48",
+          "start": 2748.73,
+          "score": 1,
+          "text": "나오시면 빛 조금만 한 감에 달러 부탁드려요."
+        }
+      ]
+    },
+    "direction_judgment": {
+      "hits": 2,
+      "summary": "방향 판단 언급이 2회 잡혔습니다. 핵심은 '선고뚜어서 롱 주 롱으로 수익이' 구간입니다.",
+      "evidence": [
+        {
+          "time": "00:24:49",
+          "start": 1489.29,
+          "score": 4,
+          "text": "선고뚜어서 롱 주 롱으로 수익이"
+        }
+      ]
+    },
+    "chart_structure": {
+      "hits": 1,
+      "summary": "고점/저점, 지지/저항, 채널/라인 같은 구조 판단이 1회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:21:34",
+          "start": 1294.74,
+          "score": 3,
+          "text": "여기서 조정 지지를 받을 수도 있고"
+        }
+      ]
+    },
+    "entry_trigger": {
+      "hits": 1,
+      "summary": "진입 조건은 추격보다 확인, 눌림, 반등, 돌파 여부 중심으로 1회 등장합니다.",
+      "evidence": [
+        {
+          "time": "00:13:47",
+          "start": 827.07,
+          "score": 4,
+          "text": "손절 쇼트러 손절 쇼트러 이런 자리가 좀 많았어요."
+        }
+      ]
+    },
+    "stop_invalidation": {
+      "hits": 2,
+      "summary": "손절/무효화 언급이 2회 잡혔습니다. 진입 전 리스크 위치를 먼저 보는 영상입니다.",
+      "evidence": [
+        {
+          "time": "00:13:47",
+          "start": 827.07,
+          "score": 5,
+          "text": "손절 쇼트러 손절 쇼트러 이런 자리가 좀 많았어요."
+        }
+      ]
+    },
+    "take_profit_exit": {
+      "hits": 1,
+      "summary": "수익 실현/청산 언급이 1회 잡혔습니다. 목표 도달 후 분할 또는 정리 맥락을 확인해야 합니다.",
+      "evidence": [
+        {
+          "time": "00:24:49",
+          "start": 1489.29,
+          "score": 3,
+          "text": "선고뚜어서 롱 주 롱으로 수익이"
+        }
+      ]
+    },
+    "timeframe": {
+      "hits": 0,
+      "summary": "분봉/시간봉/일봉 등 시간 프레임 언급이 0회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:31:16",
+          "start": 1876.6,
+          "score": 3,
+          "text": "비트코인이에요. 기관의 돈이 비트코인의 점차 점차 점차 위빨 거기 때문에 단기적으로 뉴스 때문에 빵 터졌다가 후 꺼질 수 있으나 우상향을 할 수 있는"
+        }
+      ]
+    },
+    "wave_position": {
+      "hits": 1,
+      "summary": "파동/조정 위치 언급이 1회 잡혔습니다. 방향보다 현재 파동 위치 해석이 중요합니다.",
+      "evidence": [
+        {
+          "time": "00:19:20",
+          "start": 1160.79,
+          "score": 4,
+          "text": "조정이 온 뒤에 다시 시 웨이브가 나올 거라고 그러면 조정"
+        },
+        {
+          "time": "00:21:34",
+          "start": 1294.74,
+          "score": 3,
+          "text": "여기서 조정 지지를 받을 수도 있고"
+        }
+      ]
+    }
+  },
+  "scenario_plan": {
+    "entry_if": "지지/채널/저점 구조가 유지되고 눌림 후 반등 확인이 나올 때만 롱 후보로 본다.",
+    "invalidated_if": "저점 또는 채널 하단이 깨지고 회복하지 못하면 롱 시나리오를 폐기한다.",
+    "stop_logic": "손절선은 진입가가 아니라 시나리오가 틀렸다고 판단되는 구조선 기준으로 둔다.",
+    "target_logic": "익절 근거가 부족하므로 목표가 없이 진입하지 않는다.",
+    "avoid_if": "손절 거리가 멀거나, 구조 확인 없이 단어 하나만으로 방향을 정해야 하는 구간은 피한다."
+  },
+  "algorithm_rules": [
+    {
+      "name": "structure_first",
+      "rule": "방향 신호보다 지지/저항/채널/고점저점 구조 확인을 우선한다.",
+      "reason": "차트 구조 히트 1회"
+    },
+    {
+      "name": "stop_before_entry",
+      "rule": "진입 전에 손절/무효화 가격을 먼저 계산하고, 손절 폭이 크면 거래하지 않는다.",
+      "reason": "손절/무효화 히트 2회"
+    },
+    {
+      "name": "conditional_aggression",
+      "rule": "공격적 진입은 구조, 진입조건, 손절조건이 동시에 잡힌 ACTIONABLE 영상 패턴에서만 허용한다.",
+      "reason": "현재 판정 LEARNING_ONLY"
+    },
+    {
+      "name": "direction_bias",
+      "rule": "이 영상은 LONG 우위 시나리오로 분류하되, 반대 구조 돌파/이탈 시 즉시 폐기한다.",
+      "reason": "long=3, short=0"
+    }
+  ],
+  "quality_flags": [
+    "차트 구조 근거가 약합니다. 영상 프레임 확인이 필요합니다."
+  ]
+}

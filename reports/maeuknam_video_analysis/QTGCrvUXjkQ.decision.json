@@ -1,0 +1,206 @@
+{
+  "schema": "maeuknam_decision_structure.v1",
+  "id": "QTGCrvUXjkQ",
+  "title": "[2024.07.21]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+  "url": "https://www.youtube.com/watch?v=QTGCrvUXjkQ",
+  "duration": 4296.9919375,
+  "model": "tiny",
+  "bias": {
+    "primary_bias": "LONG",
+    "long_score": 3,
+    "short_score": 1,
+    "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+  },
+  "trade_readiness": {
+    "level": "LEARNING_ONLY",
+    "score": 1,
+    "reason": "매매 실행 조건보다 시장 설명이나 회고 비중이 높아 직접 규칙화하기 어렵습니다."
+  },
+  "category_hits": {
+    "market_context": 5,
+    "direction_judgment": 4,
+    "chart_structure": 1,
+    "entry_trigger": 7,
+    "stop_invalidation": 0,
+    "take_profit_exit": 0,
+    "timeframe": 0,
+    "wave_position": 2
+  },
+  "sections": {
+    "market_context": {
+      "hits": 5,
+      "summary": "시장 배경 언급이 5회 잡혔고, 대표 구간은 '여기서 또 시작됐던 비트코인 상승 랠리가 이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다'입니다.",
+      "evidence": [
+        {
+          "time": "00:21:35",
+          "start": 1295.74,
+          "score": 4,
+          "text": "여기서 또 시작됐던 비트코인 상승 랠리가 이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다"
+        },
+        {
+          "time": "00:50:28",
+          "start": 3028.39,
+          "score": 1,
+          "text": "풍부 내려가는 거 아니에요 그리고 금리 내려가는 거 말고 있어요"
+        },
+        {
+          "time": "00:51:07",
+          "start": 3067.06,
+          "score": 2,
+          "text": "트럼프는 시장주에 받고 있죠 그리고 재정정책을 많이 할 거라고 재정정책을 시장에 돈을 뿌릴 거라고"
+        }
+      ]
+    },
+    "direction_judgment": {
+      "hits": 4,
+      "summary": "방향 판단 언급이 4회 잡혔습니다. 핵심은 '여기서 또 시작됐던 비트코인 상승 랠리가 이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다' 구간입니다.",
+      "evidence": [
+        {
+          "time": "00:21:35",
+          "start": 1295.74,
+          "score": 4,
+          "text": "여기서 또 시작됐던 비트코인 상승 랠리가 이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다"
+        },
+        {
+          "time": "00:24:31",
+          "start": 1471.88,
+          "score": 4,
+          "text": "할 예상입니다 그래서 반쪽을 할 거고 내려오면 이 구간팀에서 반쪽 하면서 롱으로 아마 수위치행할 기회를"
+        },
+        {
+          "time": "01:10:28",
+          "start": 4228.35,
+          "score": 3,
+          "text": "저의 이미 포이셔는 들어가 있어서 이거를 지금 내릴 순 없고 조정한 스테 롱 매소에 보는 게 제일 맞는 것 같아요"
+        },
+        {
+          "time": "01:10:32",
+          "start": 4232.7,
+          "score": 3,
+          "text": "이거를 지금 내릴 순 없고 조정한 스테 롱 매소에 보는 게 제일 맞는 것 같아요 다음 주의의 평일 중에 방송"
+        }
+      ]
+    },
+    "chart_structure": {
+      "hits": 1,
+      "summary": "고점/저점, 지지/저항, 채널/라인 같은 구조 판단이 1회 잡혔습니다.",
+      "evidence": [
+        {
+          "time": "00:21:35",
+          "start": 1295.74,
+          "score": 4,
+          "text": "여기서 또 시작됐던 비트코인 상승 랠리가 이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다"
+        },
+        {
+          "time": "01:09:03",
+          "start": 4143.82,
+          "score": 3,
+          "text": "이거는 아예 할지지 않은 것 같아요 굳지? 조정자를 조금만"
+        }
+      ]
+    },
+    "entry_trigger": {
+      "hits": 7,
+      "summary": "진입 조건은 추격보다 확인, 눌림, 반등, 돌파 여부 중심으로 7회 등장합니다.",
+      "evidence": [
+        {
+          "time": "00:08:35",
+          "start": 515.01,
+          "score": 3,
+          "text": "2층, 어딘가에서 방송을 했던 것 같고 그때 여기서 롱포즈션에 들어가 있었죠. 들어가 있었고"
+        },
+        {
+          "time": "00:20:46",
+          "start": 1246.98,
+          "score": 3,
+          "text": "이런 텗쯤은 6800 자리에서 한번 들어가 볼 욕"
+        },
+        {
+          "time": "00:30:22",
+          "start": 1822.28,
+          "score": 4,
+          "text": "적게 일고 많이 벌 수 있는 자리에 진입을 해야 합니다"
+        },
+        {
+          "time": "01:09:07",
+          "start": 4147.36,
+          "score": 3,
+          "text": "굳지? 조정자를 조금만 참으면 2,3,1만 참으면 좋은 자리에 못했는데"
+        }
+      ]
+    },
+    "stop_invalidation": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "take_profit_exit": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "timeframe": {
+      "hits": 0,
+      "summary": "명확한 근거 구간이 부족합니다.",
+      "evidence": []
+    },
+    "wave_position": {
+      "hits": 2,
+      "summary": "파동/조정 위치 언급이 2회 잡혔습니다. 방향보다 현재 파동 위치 해석이 중요합니다.",
+      "evidence": [
+        {
+          "time": "00:21:42",
+          "start": 1302.54,
+          "score": 4,
+          "text": "이번에 신고점을 넘기는 이 가격 배추면서 끝날 것 같다 라고 예상을 하고 있습니다. 이제 그로구나서는 끝은 조정이 있겠죠?"
+        },
+        {
+          "time": "01:09:03",
+          "start": 4143.82,
+          "score": 3,
+          "text": "이거는 아예 할지지 않은 것 같아요 굳지? 조정자를 조금만"
+        },
+        {
+          "time": "01:10:32",
+          "start": 4232.7,
+          "score": 3,
+          "text": "이거를 지금 내릴 순 없고 조정한 스테 롱 매소에 보는 게 제일 맞는 것 같아요 다음 주의의 평일 중에 방송"
+        }
+      ]
+    }
+  },
+  "scenario_plan": {
+    "entry_if": "지지/채널/저점 구조가 유지되고 눌림 후 반등 확인이 나올 때만 롱 후보로 본다.",
+    "invalidated_if": "저점 또는 채널 하단이 깨지고 회복하지 못하면 롱 시나리오를 폐기한다.",
+    "stop_logic": "손절 근거가 부족하므로 별도 차트 검증 없이는 진입하지 않는다.",
+    "target_logic": "익절 근거가 부족하므로 목표가 없이 진입하지 않는다.",
+    "avoid_if": "손절 거리가 멀거나, 구조 확인 없이 단어 하나만으로 방향을 정해야 하는 구간은 피한다."
+  },
+  "algorithm_rules": [
+    {
+      "name": "structure_first",
+      "rule": "방향 신호보다 지지/저항/채널/고점저점 구조 확인을 우선한다.",
+      "reason": "차트 구조 히트 1회"
+    },
+    {
+      "name": "stop_before_entry",
+      "rule": "진입 전에 손절/무효화 가격을 먼저 계산하고, 손절 폭이 크면 거래하지 않는다.",
+      "reason": "손절/무효화 히트 0회"
+    },
+    {
+      "name": "conditional_aggression",
+      "rule": "공격적 진입은 구조, 진입조건, 손절조건이 동시에 잡힌 ACTIONABLE 영상 패턴에서만 허용한다.",
+      "reason": "현재 판정 LEARNING_ONLY"
+    },
+    {
+      "name": "direction_bias",
+      "rule": "이 영상은 LONG 우위 시나리오로 분류하되, 반대 구조 돌파/이탈 시 즉시 폐기한다.",
+      "reason": "long=3, short=1"
+    }
+  ],
+  "quality_flags": [
+    "손절/무효화 조건 근거가 부족합니다.",
+    "차트 구조 근거가 약합니다. 영상 프레임 확인이 필요합니다.",
+    "시간 프레임이 명확하지 않습니다."
+  ]
+}

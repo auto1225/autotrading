@@ -1,0 +1,1440 @@
+{
+  "source_decisions": 191,
+  "actionable_decisions": 129,
+  "cards": [
+    {
+      "id": "breakout_retest_long",
+      "name": "돌파 후 리테스트 롱",
+      "direction": "LONG",
+      "description": "저항 돌파 이후 되돌림에서 돌파 구간이 지지로 전환되는지 확인하고, 회복 실패 시 즉시 무효화합니다.",
+      "support_count": 128,
+      "avg_match_score": 0.9787,
+      "confidence": 0.7762,
+      "entry_algorithm": [
+        "핵심 저항 또는 직전 고점을 거래량/캔들 종가 기준으로 돌파한다.",
+        "되돌림에서 돌파 구간을 이탈하지 않고 지지 전환을 확인한다.",
+        "재상승 캔들이 돌파 구간 위에서 마감하면 진입한다.",
+        "상위 레짐이 강한 하락이 아니거나, 최소한 단기 구조가 회복 중인지 확인한다.",
+        "진입 전에 손절 기준 구조선이 먼저 계산되어 있어야 한다.",
+        "손절폭 대비 1차 목표까지 기대 보상이 최소 1.4배 이상일 때만 후보로 남긴다."
+      ],
+      "risk_algorithm": {
+        "stop_basis": "LONG이면 지지선/눌림 저점/채널 하단 이탈, SHORT이면 저항선/직전 고점 회복을 무효화 기준으로 둡니다.",
+        "max_stop_distance_pct": 0.45,
+        "min_reward_risk": 1.4,
+        "position_sizing": "손절 시 계좌 손실이 0.6%를 넘지 않도록 수량을 역산합니다. 고확신 카드라도 1회 최대 1.0% 손실을 넘기지 않습니다.",
+        "scale_rule": "확인 전 40%, 확인 후 60% 분할 진입을 기본으로 하며, 손절선이 멀어지면 추가 진입하지 않습니다."
+      },
+      "exit_algorithm": [
+        "1차 목표는 직전 고점 또는 박스/채널 중단입니다.",
+        "2차 목표는 채널 상단, 다음 저항, 또는 파동 목표 구간입니다.",
+        "1차 목표 도달 후 절반 청산, 남은 수량은 진입가 또는 구조선 위로 트레일링합니다.",
+        "반등 강도가 약해지고 저점이 다시 깨지면 목표 도달 전이라도 정리합니다."
+      ],
+      "avoid_conditions": [
+        "손절선이 멀어 기대 손익비가 1.4 미만이면 진입하지 않습니다.",
+        "박스 중앙처럼 지지/저항 양쪽까지 거리가 애매한 위치는 진입하지 않습니다.",
+        "이미 급등/급락 후 목표가에 가까운 위치에서는 추격하지 않습니다.",
+        "차트 구조, 진입 트리거, 손절 근거 중 하나라도 비면 ACTIONABLE에서 제외합니다.",
+        "상위 구조가 명확한 하락 추세이고 반등 실패가 반복되면 롱 카드는 중단합니다."
+      ],
+      "score_formula": {
+        "weights": {
+          "structure_score": 0.2,
+          "trigger_score": 0.22,
+          "stop_quality_score": 0.2,
+          "reward_risk_score": 0.16,
+          "wave_position_score": 0.1,
+          "regime_score": 0.08,
+          "volume_confirmation_score": 0.06,
+          "chase_penalty": -0.16,
+          "chop_penalty": -0.12
+        },
+        "entry_threshold": 0.72,
+        "watch_threshold": 0.58,
+        "hard_blocks": [
+          "손절 기준 없음",
+          "기대 손익비 1.4 미만",
+          "스프레드/슬리피지 과다",
+          "최근 3회 같은 카드 연속 손절"
+        ]
+      },
+      "validation_plan": {
+        "backtest_unit": "1분/5분/15분 OHLCV에서 카드 조건이 처음 충족된 시점을 진입 후보로 기록합니다.",
+        "labels": [
+          "entry_time",
+          "entry_price",
+          "stop_price",
+          "target1",
+          "target2",
+          "max_favorable_excursion",
+          "max_adverse_excursion",
+          "result_r_multiple"
+        ],
+        "minimum_sample": 80,
+        "pass_criteria": {
+          "win_rate_min": 0.46,
+          "avg_r_min": 0.18,
+          "profit_factor_min": 1.18,
+          "max_drawdown_r_limit": -8.0
+        },
+        "paper_trade_gate": "백테스트 통과 후 모의거래 50회에서 profit factor 1.1 이상일 때만 실거래 후보로 승격합니다."
+      },
+      "examples": [
+        {
+          "id": "-9LIoFB2wo4",
+          "title": "[2022.07.04]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=-9LIoFB2wo4",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 39,
+            "short_score": 17,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:18:35",
+              "section": "chart_structure",
+              "text": "저점이 올라가면, 그런 무슨 말이냐면, 이탈트렌드라인을 살짝 깨도라도,"
+            },
+            {
+              "time": "00:21:00",
+              "section": "chart_structure",
+              "text": "고점이 저점이 올라온다는 건, 못 내려가고, 매도,"
+            },
+            {
+              "time": "00:46:15",
+              "section": "chart_structure",
+              "text": "고점 여기죠. 저 반등 왔다가 저정왔다. 고점 살짝만 넘기고 떨어지니까 폭랄하고"
+            },
+            {
+              "time": "01:47:35",
+              "section": "chart_structure",
+              "text": "고점이 내려오, 술염번이야 별게 아니고 고점이 내려오고 있고 저점이 올라오고 있으면 술염반데"
+            },
+            {
+              "time": "00:11:27",
+              "section": "entry_trigger",
+              "text": "롱에 들어가서, 첫, 반등 나와서,"
+            },
+            {
+              "time": "00:34:48",
+              "section": "entry_trigger",
+              "text": "저는 신조가 하락에 매수해서 상승을 매 도하는 거기 때문에 지금 하락춘에는 매수하는 게 좋은 것 같아요. 코스피 관점, 아, 초오늘 삼성년대 매수했습니다."
+            }
+          ]
+        },
+        {
+          "id": "11imUrT0nF8",
+          "title": "[2022.07.24] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=11imUrT0nF8",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 31,
+            "short_score": 4,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 4,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:51:14",
+              "section": "chart_structure",
+              "text": "시하라기를 하든가. 아니, ABC 완성돼서 고점을 넘기러 가야 된가. 근데 고점을 넘길 거면"
+            },
+            {
+              "time": "01:03:19",
+              "section": "chart_structure",
+              "text": "그래서 추세를 보다가 추세 끝이 맘을 때 닿는 자리 기다렸다가"
+            },
+            {
+              "time": "01:09:35",
+              "section": "chart_structure",
+              "text": "왜 도지캔들에 선젤라인이에요? 그걸 알아야 되답할 수 있을 것 같은데. 초에 도지캔들을 보고 선젤라인을 잡는 거는"
+            },
+            {
+              "time": "00:17:55",
+              "section": "entry_trigger",
+              "text": "롱을 들어가서 지난 방송에서도 여기였잖아요. 떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까"
+            },
+            {
+              "time": "00:18:01",
+              "section": "entry_trigger",
+              "text": "떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까 사람이 기계나 아니니까."
+            },
+            {
+              "time": "00:41:44",
+              "section": "entry_trigger",
+              "text": "하방이 이건 여기를 공통 구간 상승 구간을 뽑고 흔절란 여기로 잡으면서 녹매수에 들어가자라고 생각하신 분들이"
+            }
+          ]
+        },
+        {
+          "id": "1fEFO4LTIhk",
+          "title": "[2022.05.26]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1fEFO4LTIhk",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 103,
+            "short_score": 7,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:32:26",
+              "section": "chart_structure",
+              "text": "지금 채널을 이탈하는 야 뭔가 채널을 상당 돌파하는 야"
+            },
+            {
+              "time": "00:39:31",
+              "section": "chart_structure",
+              "text": "비트코인 최고점 찍고 폭나건디에 반등왔다가 채널로 빠지고 지금도 반등왔다 채널로 빠지고 있죠."
+            },
+            {
+              "time": "01:41:02",
+              "section": "chart_structure",
+              "text": "남님, 1 8러운 매매 하시나요? 아니요? 방송 보시면 하셨지만 지지저항 추세 채널 패턴"
+            },
+            {
+              "time": "00:10:13",
+              "section": "entry_trigger",
+              "text": "그래서 지금은 롱관점 보는 게 맞는 것 같아요. 별로 들어가죠. 그래서 여기서 만약에 이 구간에서 만약에 조정 바닥에 롱을 탓 때 롱에 물리면"
+            },
+            {
+              "time": "00:21:26",
+              "section": "entry_trigger",
+              "text": "여기 반등 오길래, 롱을 살짝 타다가 왜 롱 타는냐면 여기가 결국에는, 지지, 원래 여기서는 반등 나고 안 되고"
+            },
+            {
+              "time": "01:35:02",
+              "section": "entry_trigger",
+              "text": "이 중간에 있는 것들 다 반입절 같은 날린 거고 진입자리를 보시면 여기 있어스페친이 파고 롱 진입하고 쭈친이 파고 쭈친이 파고 롱 진입하고"
+            }
+          ]
+        },
+        {
+          "id": "1I-r2ufAyK0",
+          "title": "[2021.08.03]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1I-r2ufAyK0",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 21,
+            "short_score": 3,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:09:17",
+              "section": "chart_structure",
+              "text": "반등 후에 하락하더라도 어쨌든 6일 8까지는 분하니 빠지지 않을까"
+            },
+            {
+              "time": "00:19:21",
+              "section": "chart_structure",
+              "text": "그래서 길게 보면 반등하라 반등하라 그 지속하겠지만 이 3%에 구간까지는 빠지지 않을까"
+            },
+            {
+              "time": "00:21:13",
+              "section": "chart_structure",
+              "text": "그러면 이 추세라인 지적원하고 지울게요 이 추세라인을 기억하시면 좋을 것 같아요"
+            },
+            {
+              "time": "00:22:53",
+              "section": "chart_structure",
+              "text": "굳이 저점이 여긴데도 이걸 무시하고 애쓰고 심황해를 돌려가면서 난 저점이 이거라고 생각해"
+            },
+            {
+              "time": "00:07:21",
+              "section": "entry_trigger",
+              "text": "차트가 어떻게 흘러가서 저는 예상했던 거 대비 어떻게 맵게 하겠다고 했는데 그 대비 실제로 어떻게 맵는지 또 확인해 보고 세 번째 지금 차트 확인해 보고 앞으로 어떻게 맵게 할지"
+            },
+            {
+              "time": "00:17:25",
+              "section": "entry_trigger",
+              "text": "파덕도 제가 뭐 컴팅을 잘못한 것 같지 않은데 어쨌든 상승 달걀 수 있고 여기서 반등이 나올 자리에서 잘 나와주긴 했는데"
+            }
+          ]
+        },
+        {
+          "id": "1W7v1F2-GSM",
+          "title": "[2022.08.14]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=1W7v1F2-GSM",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 13,
+            "short_score": 5,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:26:34",
+              "section": "chart_structure",
+              "text": "애매해요, 왜냐면 원투스, 슬리, ABC, 이게 저점인데 그럼 여기 외치가 엔딩이 이렇게 다아야 되잖아요 이탈하게 냈어요"
+            },
+            {
+              "time": "01:20:10",
+              "section": "chart_structure",
+              "text": "이러면 추세라인 딱딱딱 걸리니까 그세요. 그러면 여기 여기가 맞아서 채널이 형성되게 하는데"
+            },
+            {
+              "time": "01:35:49",
+              "section": "chart_structure",
+              "text": "수입받은 구간인데 시간 봉 보시면 하락다 해보신 분명이 있어요. 가격이 상승했는데 아래스 사이가 고점 대비 떨어졌죠?"
+            },
+            {
+              "time": "00:10:59",
+              "section": "entry_trigger",
+              "text": "좀 넘기지않아 저 또 조정 받고. 어? 화방이 났던 또 올라오도 지금 살짝 조정 받고 있는데"
+            },
+            {
+              "time": "00:12:54",
+              "section": "stop_invalidation",
+              "text": "한 두 번인가 쳤는데 손절이 계속 나왔거든요. 손절이 계속 나왔습니다."
+            },
+            {
+              "time": "00:16:44",
+              "section": "stop_invalidation",
+              "text": "이 수익은 뭐지? 손절했던 거 밖에 기억이 없는데 아 손절해 없돼 여기 있네요."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support_pullback_long",
+      "name": "지지 확인 눌림 롱",
+      "direction": "LONG",
+      "description": "상승 또는 중립 구조에서 가격이 눌린 뒤 지지/저점/채널 하단을 지키고 반등 확인이 나올 때만 롱을 검토합니다.",
+      "support_count": 128,
+      "avg_match_score": 0.9779,
+      "confidence": 0.776,
+      "entry_algorithm": [
+        "최근 상승 또는 박스 상단 돌파 후 눌림이 나온다.",
+        "가격이 이전 저항의 지지 전환 구간, 채널 하단, 직전 저점 위에서 멈춘다.",
+        "반등 캔들이 나오거나 저점 갱신 실패가 확인되면 분할 진입한다.",
+        "상위 레짐이 강한 하락이 아니거나, 최소한 단기 구조가 회복 중인지 확인한다.",
+        "진입 전에 손절 기준 구조선이 먼저 계산되어 있어야 한다.",
+        "손절폭 대비 1차 목표까지 기대 보상이 최소 1.4배 이상일 때만 후보로 남긴다."
+      ],
+      "risk_algorithm": {
+        "stop_basis": "LONG이면 지지선/눌림 저점/채널 하단 이탈, SHORT이면 저항선/직전 고점 회복을 무효화 기준으로 둡니다.",
+        "max_stop_distance_pct": 0.45,
+        "min_reward_risk": 1.4,
+        "position_sizing": "손절 시 계좌 손실이 0.6%를 넘지 않도록 수량을 역산합니다. 고확신 카드라도 1회 최대 1.0% 손실을 넘기지 않습니다.",
+        "scale_rule": "확인 전 40%, 확인 후 60% 분할 진입을 기본으로 하며, 손절선이 멀어지면 추가 진입하지 않습니다."
+      },
+      "exit_algorithm": [
+        "1차 목표는 직전 고점 또는 박스/채널 중단입니다.",
+        "2차 목표는 채널 상단, 다음 저항, 또는 파동 목표 구간입니다.",
+        "1차 목표 도달 후 절반 청산, 남은 수량은 진입가 또는 구조선 위로 트레일링합니다.",
+        "반등 강도가 약해지고 저점이 다시 깨지면 목표 도달 전이라도 정리합니다."
+      ],
+      "avoid_conditions": [
+        "손절선이 멀어 기대 손익비가 1.4 미만이면 진입하지 않습니다.",
+        "박스 중앙처럼 지지/저항 양쪽까지 거리가 애매한 위치는 진입하지 않습니다.",
+        "이미 급등/급락 후 목표가에 가까운 위치에서는 추격하지 않습니다.",
+        "차트 구조, 진입 트리거, 손절 근거 중 하나라도 비면 ACTIONABLE에서 제외합니다.",
+        "상위 구조가 명확한 하락 추세이고 반등 실패가 반복되면 롱 카드는 중단합니다."
+      ],
+      "score_formula": {
+        "weights": {
+          "structure_score": 0.22,
+          "trigger_score": 0.18,
+          "stop_quality_score": 0.2,
+          "reward_risk_score": 0.16,
+          "wave_position_score": 0.1,
+          "regime_score": 0.08,
+          "volume_confirmation_score": 0.06,
+          "chase_penalty": -0.16,
+          "chop_penalty": -0.12
+        },
+        "entry_threshold": 0.72,
+        "watch_threshold": 0.58,
+        "hard_blocks": [
+          "손절 기준 없음",
+          "기대 손익비 1.4 미만",
+          "스프레드/슬리피지 과다",
+          "최근 3회 같은 카드 연속 손절"
+        ]
+      },
+      "validation_plan": {
+        "backtest_unit": "1분/5분/15분 OHLCV에서 카드 조건이 처음 충족된 시점을 진입 후보로 기록합니다.",
+        "labels": [
+          "entry_time",
+          "entry_price",
+          "stop_price",
+          "target1",
+          "target2",
+          "max_favorable_excursion",
+          "max_adverse_excursion",
+          "result_r_multiple"
+        ],
+        "minimum_sample": 80,
+        "pass_criteria": {
+          "win_rate_min": 0.46,
+          "avg_r_min": 0.18,
+          "profit_factor_min": 1.18,
+          "max_drawdown_r_limit": -8.0
+        },
+        "paper_trade_gate": "백테스트 통과 후 모의거래 50회에서 profit factor 1.1 이상일 때만 실거래 후보로 승격합니다."
+      },
+      "examples": [
+        {
+          "id": "-9LIoFB2wo4",
+          "title": "[2022.07.04]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=-9LIoFB2wo4",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 39,
+            "short_score": 17,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:18:35",
+              "section": "chart_structure",
+              "text": "저점이 올라가면, 그런 무슨 말이냐면, 이탈트렌드라인을 살짝 깨도라도,"
+            },
+            {
+              "time": "00:21:00",
+              "section": "chart_structure",
+              "text": "고점이 저점이 올라온다는 건, 못 내려가고, 매도,"
+            },
+            {
+              "time": "00:46:15",
+              "section": "chart_structure",
+              "text": "고점 여기죠. 저 반등 왔다가 저정왔다. 고점 살짝만 넘기고 떨어지니까 폭랄하고"
+            },
+            {
+              "time": "01:47:35",
+              "section": "chart_structure",
+              "text": "고점이 내려오, 술염번이야 별게 아니고 고점이 내려오고 있고 저점이 올라오고 있으면 술염반데"
+            },
+            {
+              "time": "00:11:27",
+              "section": "entry_trigger",
+              "text": "롱에 들어가서, 첫, 반등 나와서,"
+            },
+            {
+              "time": "00:34:48",
+              "section": "entry_trigger",
+              "text": "저는 신조가 하락에 매수해서 상승을 매 도하는 거기 때문에 지금 하락춘에는 매수하는 게 좋은 것 같아요. 코스피 관점, 아, 초오늘 삼성년대 매수했습니다."
+            }
+          ]
+        },
+        {
+          "id": "11imUrT0nF8",
+          "title": "[2022.07.24] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=11imUrT0nF8",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 31,
+            "short_score": 4,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 4,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:51:14",
+              "section": "chart_structure",
+              "text": "시하라기를 하든가. 아니, ABC 완성돼서 고점을 넘기러 가야 된가. 근데 고점을 넘길 거면"
+            },
+            {
+              "time": "01:03:19",
+              "section": "chart_structure",
+              "text": "그래서 추세를 보다가 추세 끝이 맘을 때 닿는 자리 기다렸다가"
+            },
+            {
+              "time": "01:09:35",
+              "section": "chart_structure",
+              "text": "왜 도지캔들에 선젤라인이에요? 그걸 알아야 되답할 수 있을 것 같은데. 초에 도지캔들을 보고 선젤라인을 잡는 거는"
+            },
+            {
+              "time": "00:17:55",
+              "section": "entry_trigger",
+              "text": "롱을 들어가서 지난 방송에서도 여기였잖아요. 떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까"
+            },
+            {
+              "time": "00:18:01",
+              "section": "entry_trigger",
+              "text": "떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까 사람이 기계나 아니니까."
+            },
+            {
+              "time": "00:41:44",
+              "section": "entry_trigger",
+              "text": "하방이 이건 여기를 공통 구간 상승 구간을 뽑고 흔절란 여기로 잡으면서 녹매수에 들어가자라고 생각하신 분들이"
+            }
+          ]
+        },
+        {
+          "id": "1fEFO4LTIhk",
+          "title": "[2022.05.26]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1fEFO4LTIhk",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 103,
+            "short_score": 7,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:39:31",
+              "section": "chart_structure",
+              "text": "비트코인 최고점 찍고 폭나건디에 반등왔다가 채널로 빠지고 지금도 반등왔다 채널로 빠지고 있죠."
+            },
+            {
+              "time": "01:41:02",
+              "section": "chart_structure",
+              "text": "남님, 1 8러운 매매 하시나요? 아니요? 방송 보시면 하셨지만 지지저항 추세 채널 패턴"
+            },
+            {
+              "time": "00:10:13",
+              "section": "entry_trigger",
+              "text": "그래서 지금은 롱관점 보는 게 맞는 것 같아요. 별로 들어가죠. 그래서 여기서 만약에 이 구간에서 만약에 조정 바닥에 롱을 탓 때 롱에 물리면"
+            },
+            {
+              "time": "00:21:26",
+              "section": "entry_trigger",
+              "text": "여기 반등 오길래, 롱을 살짝 타다가 왜 롱 타는냐면 여기가 결국에는, 지지, 원래 여기서는 반등 나고 안 되고"
+            },
+            {
+              "time": "01:35:02",
+              "section": "entry_trigger",
+              "text": "이 중간에 있는 것들 다 반입절 같은 날린 거고 진입자리를 보시면 여기 있어스페친이 파고 롱 진입하고 쭈친이 파고 쭈친이 파고 롱 진입하고"
+            },
+            {
+              "time": "00:10:23",
+              "section": "stop_invalidation",
+              "text": "그래서 여기서 만약에 이 구간에서 만약에 조정 바닥에 롱을 탓 때 롱에 물리면 그래도 바로 떨어질 가능성 거의 없고 행복하다 떨어질 때 때문에 이 구간에서 분명히 탈출은 투산 본절이나"
+            }
+          ]
+        },
+        {
+          "id": "1I-r2ufAyK0",
+          "title": "[2021.08.03]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1I-r2ufAyK0",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 21,
+            "short_score": 3,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:09:17",
+              "section": "chart_structure",
+              "text": "반등 후에 하락하더라도 어쨌든 6일 8까지는 분하니 빠지지 않을까"
+            },
+            {
+              "time": "00:19:21",
+              "section": "chart_structure",
+              "text": "그래서 길게 보면 반등하라 반등하라 그 지속하겠지만 이 3%에 구간까지는 빠지지 않을까"
+            },
+            {
+              "time": "00:21:13",
+              "section": "chart_structure",
+              "text": "그러면 이 추세라인 지적원하고 지울게요 이 추세라인을 기억하시면 좋을 것 같아요"
+            },
+            {
+              "time": "00:22:53",
+              "section": "chart_structure",
+              "text": "굳이 저점이 여긴데도 이걸 무시하고 애쓰고 심황해를 돌려가면서 난 저점이 이거라고 생각해"
+            },
+            {
+              "time": "00:07:21",
+              "section": "entry_trigger",
+              "text": "차트가 어떻게 흘러가서 저는 예상했던 거 대비 어떻게 맵게 하겠다고 했는데 그 대비 실제로 어떻게 맵는지 또 확인해 보고 세 번째 지금 차트 확인해 보고 앞으로 어떻게 맵게 할지"
+            },
+            {
+              "time": "00:17:25",
+              "section": "entry_trigger",
+              "text": "파덕도 제가 뭐 컴팅을 잘못한 것 같지 않은데 어쨌든 상승 달걀 수 있고 여기서 반등이 나올 자리에서 잘 나와주긴 했는데"
+            }
+          ]
+        },
+        {
+          "id": "1W7v1F2-GSM",
+          "title": "[2022.08.14]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=1W7v1F2-GSM",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 13,
+            "short_score": 5,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:26:34",
+              "section": "chart_structure",
+              "text": "애매해요, 왜냐면 원투스, 슬리, ABC, 이게 저점인데 그럼 여기 외치가 엔딩이 이렇게 다아야 되잖아요 이탈하게 냈어요"
+            },
+            {
+              "time": "01:20:10",
+              "section": "chart_structure",
+              "text": "이러면 추세라인 딱딱딱 걸리니까 그세요. 그러면 여기 여기가 맞아서 채널이 형성되게 하는데"
+            },
+            {
+              "time": "01:35:49",
+              "section": "chart_structure",
+              "text": "수입받은 구간인데 시간 봉 보시면 하락다 해보신 분명이 있어요. 가격이 상승했는데 아래스 사이가 고점 대비 떨어졌죠?"
+            },
+            {
+              "time": "00:10:59",
+              "section": "entry_trigger",
+              "text": "좀 넘기지않아 저 또 조정 받고. 어? 화방이 났던 또 올라오도 지금 살짝 조정 받고 있는데"
+            },
+            {
+              "time": "00:12:54",
+              "section": "stop_invalidation",
+              "text": "한 두 번인가 쳤는데 손절이 계속 나왔거든요. 손절이 계속 나왔습니다."
+            },
+            {
+              "time": "00:16:44",
+              "section": "stop_invalidation",
+              "text": "이 수익은 뭐지? 손절했던 거 밖에 기억이 없는데 아 손절해 없돼 여기 있네요."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wave_continuation_long",
+      "name": "파동 진행 롱",
+      "direction": "LONG",
+      "description": "조정파가 끝나고 3파/5파 또는 임펄스 진행 가능성이 커질 때만 진입을 검토합니다.",
+      "support_count": 79,
+      "avg_match_score": 1.0,
+      "confidence": 0.78,
+      "entry_algorithm": [
+        "조정파가 충분히 진행된 뒤 3파 또는 5파 진행 가능성을 확인한다.",
+        "조정 저점이 무너지지 않고 반등 구조가 형성된다.",
+        "파동 무효화 지점이 가까울 때만 진입한다.",
+        "상위 레짐이 강한 하락이 아니거나, 최소한 단기 구조가 회복 중인지 확인한다.",
+        "진입 전에 손절 기준 구조선이 먼저 계산되어 있어야 한다.",
+        "손절폭 대비 1차 목표까지 기대 보상이 최소 1.4배 이상일 때만 후보로 남긴다."
+      ],
+      "risk_algorithm": {
+        "stop_basis": "LONG이면 지지선/눌림 저점/채널 하단 이탈, SHORT이면 저항선/직전 고점 회복을 무효화 기준으로 둡니다.",
+        "max_stop_distance_pct": 0.45,
+        "min_reward_risk": 1.4,
+        "position_sizing": "손절 시 계좌 손실이 0.6%를 넘지 않도록 수량을 역산합니다. 고확신 카드라도 1회 최대 1.0% 손실을 넘기지 않습니다.",
+        "scale_rule": "확인 전 40%, 확인 후 60% 분할 진입을 기본으로 하며, 손절선이 멀어지면 추가 진입하지 않습니다."
+      },
+      "exit_algorithm": [
+        "1차 목표는 직전 고점 또는 박스/채널 중단입니다.",
+        "2차 목표는 채널 상단, 다음 저항, 또는 파동 목표 구간입니다.",
+        "1차 목표 도달 후 절반 청산, 남은 수량은 진입가 또는 구조선 위로 트레일링합니다.",
+        "반등 강도가 약해지고 저점이 다시 깨지면 목표 도달 전이라도 정리합니다."
+      ],
+      "avoid_conditions": [
+        "손절선이 멀어 기대 손익비가 1.4 미만이면 진입하지 않습니다.",
+        "박스 중앙처럼 지지/저항 양쪽까지 거리가 애매한 위치는 진입하지 않습니다.",
+        "이미 급등/급락 후 목표가에 가까운 위치에서는 추격하지 않습니다.",
+        "차트 구조, 진입 트리거, 손절 근거 중 하나라도 비면 ACTIONABLE에서 제외합니다.",
+        "상위 구조가 명확한 하락 추세이고 반등 실패가 반복되면 롱 카드는 중단합니다."
+      ],
+      "score_formula": {
+        "weights": {
+          "structure_score": 0.22,
+          "trigger_score": 0.18,
+          "stop_quality_score": 0.2,
+          "reward_risk_score": 0.16,
+          "wave_position_score": 0.18,
+          "regime_score": 0.08,
+          "volume_confirmation_score": 0.02,
+          "chase_penalty": -0.16,
+          "chop_penalty": -0.12
+        },
+        "entry_threshold": 0.72,
+        "watch_threshold": 0.58,
+        "hard_blocks": [
+          "손절 기준 없음",
+          "기대 손익비 1.4 미만",
+          "스프레드/슬리피지 과다",
+          "최근 3회 같은 카드 연속 손절"
+        ]
+      },
+      "validation_plan": {
+        "backtest_unit": "1분/5분/15분 OHLCV에서 카드 조건이 처음 충족된 시점을 진입 후보로 기록합니다.",
+        "labels": [
+          "entry_time",
+          "entry_price",
+          "stop_price",
+          "target1",
+          "target2",
+          "max_favorable_excursion",
+          "max_adverse_excursion",
+          "result_r_multiple"
+        ],
+        "minimum_sample": 80,
+        "pass_criteria": {
+          "win_rate_min": 0.46,
+          "avg_r_min": 0.18,
+          "profit_factor_min": 1.18,
+          "max_drawdown_r_limit": -8.0
+        },
+        "paper_trade_gate": "백테스트 통과 후 모의거래 50회에서 profit factor 1.1 이상일 때만 실거래 후보로 승격합니다."
+      },
+      "examples": [
+        {
+          "id": "-9LIoFB2wo4",
+          "title": "[2022.07.04]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=-9LIoFB2wo4",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 39,
+            "short_score": 17,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:18:35",
+              "section": "chart_structure",
+              "text": "저점이 올라가면, 그런 무슨 말이냐면, 이탈트렌드라인을 살짝 깨도라도,"
+            },
+            {
+              "time": "00:21:00",
+              "section": "chart_structure",
+              "text": "고점이 저점이 올라온다는 건, 못 내려가고, 매도,"
+            },
+            {
+              "time": "00:46:15",
+              "section": "chart_structure",
+              "text": "고점 여기죠. 저 반등 왔다가 저정왔다. 고점 살짝만 넘기고 떨어지니까 폭랄하고"
+            },
+            {
+              "time": "01:47:35",
+              "section": "chart_structure",
+              "text": "고점이 내려오, 술염번이야 별게 아니고 고점이 내려오고 있고 저점이 올라오고 있으면 술염반데"
+            },
+            {
+              "time": "00:11:27",
+              "section": "entry_trigger",
+              "text": "롱에 들어가서, 첫, 반등 나와서,"
+            },
+            {
+              "time": "00:34:48",
+              "section": "entry_trigger",
+              "text": "저는 신조가 하락에 매수해서 상승을 매 도하는 거기 때문에 지금 하락춘에는 매수하는 게 좋은 것 같아요. 코스피 관점, 아, 초오늘 삼성년대 매수했습니다."
+            }
+          ]
+        },
+        {
+          "id": "11imUrT0nF8",
+          "title": "[2022.07.24] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=11imUrT0nF8",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 31,
+            "short_score": 4,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 4,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:51:14",
+              "section": "chart_structure",
+              "text": "시하라기를 하든가. 아니, ABC 완성돼서 고점을 넘기러 가야 된가. 근데 고점을 넘길 거면"
+            },
+            {
+              "time": "01:03:19",
+              "section": "chart_structure",
+              "text": "그래서 추세를 보다가 추세 끝이 맘을 때 닿는 자리 기다렸다가"
+            },
+            {
+              "time": "01:09:35",
+              "section": "chart_structure",
+              "text": "왜 도지캔들에 선젤라인이에요? 그걸 알아야 되답할 수 있을 것 같은데. 초에 도지캔들을 보고 선젤라인을 잡는 거는"
+            },
+            {
+              "time": "00:17:55",
+              "section": "entry_trigger",
+              "text": "롱을 들어가서 지난 방송에서도 여기였잖아요. 떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까"
+            },
+            {
+              "time": "00:18:01",
+              "section": "entry_trigger",
+              "text": "떨어지는 여기서 롱을 들어가서 맵을 시작을 했으면 좋겠죠. 좋은데 뭐 항상 자만자고 모든 타점을 다 들어가진 없으니까 사람이 기계나 아니니까."
+            },
+            {
+              "time": "00:41:44",
+              "section": "entry_trigger",
+              "text": "하방이 이건 여기를 공통 구간 상승 구간을 뽑고 흔절란 여기로 잡으면서 녹매수에 들어가자라고 생각하신 분들이"
+            }
+          ]
+        },
+        {
+          "id": "1fEFO4LTIhk",
+          "title": "[2022.05.26]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1fEFO4LTIhk",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 103,
+            "short_score": 7,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:39:31",
+              "section": "chart_structure",
+              "text": "비트코인 최고점 찍고 폭나건디에 반등왔다가 채널로 빠지고 지금도 반등왔다 채널로 빠지고 있죠."
+            },
+            {
+              "time": "01:41:02",
+              "section": "chart_structure",
+              "text": "남님, 1 8러운 매매 하시나요? 아니요? 방송 보시면 하셨지만 지지저항 추세 채널 패턴"
+            },
+            {
+              "time": "00:10:13",
+              "section": "entry_trigger",
+              "text": "그래서 지금은 롱관점 보는 게 맞는 것 같아요. 별로 들어가죠. 그래서 여기서 만약에 이 구간에서 만약에 조정 바닥에 롱을 탓 때 롱에 물리면"
+            },
+            {
+              "time": "00:21:26",
+              "section": "entry_trigger",
+              "text": "여기 반등 오길래, 롱을 살짝 타다가 왜 롱 타는냐면 여기가 결국에는, 지지, 원래 여기서는 반등 나고 안 되고"
+            },
+            {
+              "time": "01:35:02",
+              "section": "entry_trigger",
+              "text": "이 중간에 있는 것들 다 반입절 같은 날린 거고 진입자리를 보시면 여기 있어스페친이 파고 롱 진입하고 쭈친이 파고 쭈친이 파고 롱 진입하고"
+            },
+            {
+              "time": "00:10:23",
+              "section": "stop_invalidation",
+              "text": "그래서 여기서 만약에 이 구간에서 만약에 조정 바닥에 롱을 탓 때 롱에 물리면 그래도 바로 떨어질 가능성 거의 없고 행복하다 떨어질 때 때문에 이 구간에서 분명히 탈출은 투산 본절이나"
+            }
+          ]
+        },
+        {
+          "id": "1I-r2ufAyK0",
+          "title": "[2021.08.03]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=1I-r2ufAyK0",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 21,
+            "short_score": 3,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:09:17",
+              "section": "chart_structure",
+              "text": "반등 후에 하락하더라도 어쨌든 6일 8까지는 분하니 빠지지 않을까"
+            },
+            {
+              "time": "00:19:21",
+              "section": "chart_structure",
+              "text": "그래서 길게 보면 반등하라 반등하라 그 지속하겠지만 이 3%에 구간까지는 빠지지 않을까"
+            },
+            {
+              "time": "00:21:13",
+              "section": "chart_structure",
+              "text": "그러면 이 추세라인 지적원하고 지울게요 이 추세라인을 기억하시면 좋을 것 같아요"
+            },
+            {
+              "time": "00:22:53",
+              "section": "chart_structure",
+              "text": "굳이 저점이 여긴데도 이걸 무시하고 애쓰고 심황해를 돌려가면서 난 저점이 이거라고 생각해"
+            },
+            {
+              "time": "00:07:21",
+              "section": "entry_trigger",
+              "text": "차트가 어떻게 흘러가서 저는 예상했던 거 대비 어떻게 맵게 하겠다고 했는데 그 대비 실제로 어떻게 맵는지 또 확인해 보고 세 번째 지금 차트 확인해 보고 앞으로 어떻게 맵게 할지"
+            },
+            {
+              "time": "00:17:25",
+              "section": "entry_trigger",
+              "text": "파덕도 제가 뭐 컴팅을 잘못한 것 같지 않은데 어쨌든 상승 달걀 수 있고 여기서 반등이 나올 자리에서 잘 나와주긴 했는데"
+            }
+          ]
+        },
+        {
+          "id": "1W7v1F2-GSM",
+          "title": "[2022.08.14]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=1W7v1F2-GSM",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 13,
+            "short_score": 5,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:26:34",
+              "section": "chart_structure",
+              "text": "애매해요, 왜냐면 원투스, 슬리, ABC, 이게 저점인데 그럼 여기 외치가 엔딩이 이렇게 다아야 되잖아요 이탈하게 냈어요"
+            },
+            {
+              "time": "01:20:10",
+              "section": "chart_structure",
+              "text": "이러면 추세라인 딱딱딱 걸리니까 그세요. 그러면 여기 여기가 맞아서 채널이 형성되게 하는데"
+            },
+            {
+              "time": "01:35:49",
+              "section": "chart_structure",
+              "text": "수입받은 구간인데 시간 봉 보시면 하락다 해보신 분명이 있어요. 가격이 상승했는데 아래스 사이가 고점 대비 떨어졌죠?"
+            },
+            {
+              "time": "00:10:59",
+              "section": "entry_trigger",
+              "text": "좀 넘기지않아 저 또 조정 받고. 어? 화방이 났던 또 올라오도 지금 살짝 조정 받고 있는데"
+            },
+            {
+              "time": "00:12:54",
+              "section": "stop_invalidation",
+              "text": "한 두 번인가 쳤는데 손절이 계속 나왔거든요. 손절이 계속 나왔습니다."
+            },
+            {
+              "time": "00:16:44",
+              "section": "stop_invalidation",
+              "text": "이 수익은 뭐지? 손절했던 거 밖에 기억이 없는데 아 손절해 없돼 여기 있네요."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "failed_breakdown_reversal_long",
+      "name": "이탈 실패 반전 롱",
+      "direction": "LONG",
+      "description": "하락 이탈이 이어지지 않고 다시 구조 안으로 회복될 때 손절을 짧게 잡는 반전형 롱입니다.",
+      "support_count": 49,
+      "avg_match_score": 0.9977,
+      "confidence": 0.7796,
+      "entry_algorithm": [
+        "핵심 지지 이탈 이후 추가 하락이 이어지지 않는다.",
+        "가격이 빠르게 구조 안으로 회복하고 이탈 구간을 다시 지지한다.",
+        "회복 실패 시 손절할 수 있는 좁은 구간에서만 진입한다.",
+        "상위 레짐이 강한 하락이 아니거나, 최소한 단기 구조가 회복 중인지 확인한다.",
+        "진입 전에 손절 기준 구조선이 먼저 계산되어 있어야 한다.",
+        "손절폭 대비 1차 목표까지 기대 보상이 최소 1.4배 이상일 때만 후보로 남긴다."
+      ],
+      "risk_algorithm": {
+        "stop_basis": "LONG이면 지지선/눌림 저점/채널 하단 이탈, SHORT이면 저항선/직전 고점 회복을 무효화 기준으로 둡니다.",
+        "max_stop_distance_pct": 0.45,
+        "min_reward_risk": 1.4,
+        "position_sizing": "손절 시 계좌 손실이 0.6%를 넘지 않도록 수량을 역산합니다. 고확신 카드라도 1회 최대 1.0% 손실을 넘기지 않습니다.",
+        "scale_rule": "확인 전 40%, 확인 후 60% 분할 진입을 기본으로 하며, 손절선이 멀어지면 추가 진입하지 않습니다."
+      },
+      "exit_algorithm": [
+        "1차 목표는 직전 고점 또는 박스/채널 중단입니다.",
+        "2차 목표는 채널 상단, 다음 저항, 또는 파동 목표 구간입니다.",
+        "1차 목표 도달 후 절반 청산, 남은 수량은 진입가 또는 구조선 위로 트레일링합니다.",
+        "반등 강도가 약해지고 저점이 다시 깨지면 목표 도달 전이라도 정리합니다."
+      ],
+      "avoid_conditions": [
+        "손절선이 멀어 기대 손익비가 1.4 미만이면 진입하지 않습니다.",
+        "박스 중앙처럼 지지/저항 양쪽까지 거리가 애매한 위치는 진입하지 않습니다.",
+        "이미 급등/급락 후 목표가에 가까운 위치에서는 추격하지 않습니다.",
+        "차트 구조, 진입 트리거, 손절 근거 중 하나라도 비면 ACTIONABLE에서 제외합니다.",
+        "상위 구조가 명확한 하락 추세이고 반등 실패가 반복되면 롱 카드는 중단합니다."
+      ],
+      "score_formula": {
+        "weights": {
+          "structure_score": 0.2,
+          "trigger_score": 0.22,
+          "stop_quality_score": 0.2,
+          "reward_risk_score": 0.16,
+          "wave_position_score": 0.1,
+          "regime_score": 0.08,
+          "volume_confirmation_score": 0.06,
+          "chase_penalty": -0.16,
+          "chop_penalty": -0.12
+        },
+        "entry_threshold": 0.72,
+        "watch_threshold": 0.58,
+        "hard_blocks": [
+          "손절 기준 없음",
+          "기대 손익비 1.4 미만",
+          "스프레드/슬리피지 과다",
+          "최근 3회 같은 카드 연속 손절"
+        ]
+      },
+      "validation_plan": {
+        "backtest_unit": "1분/5분/15분 OHLCV에서 카드 조건이 처음 충족된 시점을 진입 후보로 기록합니다.",
+        "labels": [
+          "entry_time",
+          "entry_price",
+          "stop_price",
+          "target1",
+          "target2",
+          "max_favorable_excursion",
+          "max_adverse_excursion",
+          "result_r_multiple"
+        ],
+        "minimum_sample": 80,
+        "pass_criteria": {
+          "win_rate_min": 0.46,
+          "avg_r_min": 0.18,
+          "profit_factor_min": 1.18,
+          "max_drawdown_r_limit": -8.0
+        },
+        "paper_trade_gate": "백테스트 통과 후 모의거래 50회에서 profit factor 1.1 이상일 때만 실거래 후보로 승격합니다."
+      },
+      "examples": [
+        {
+          "id": "-dcJsREppds",
+          "title": "[2023.09.27]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=-dcJsREppds",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 18,
+            "short_score": 2,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 4,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:21:43",
+              "section": "chart_structure",
+              "text": "여기가 3%에 구간 지난 번에 저점 나오고 올라갔다가 반등이 나왔었던"
+            },
+            {
+              "time": "00:27:29",
+              "section": "chart_structure",
+              "text": "인퍼스가 실패했기 때문에 여기 고점을 갱신하지 못할 가능성을 생각해 봐야 돼요 여기에 고점을 갱신하지 못할 가능성 생각해 봐야 되고"
+            },
+            {
+              "time": "00:57:50",
+              "section": "chart_structure",
+              "text": "그래서 바란 남이 없는 비트는 떨어져는데 저점을 깨지 않을 거. 이더가 떨어져는데 저점을 깨는 여기를 좀 깨는 상황이면"
+            },
+            {
+              "time": "00:22:47",
+              "section": "entry_trigger",
+              "text": "칼 반등이 오늘 그래서 다시 한 걸 여기서 매수를 했습니다"
+            },
+            {
+              "time": "00:26:06",
+              "section": "entry_trigger",
+              "text": "제가 기록한 게 아니고 OKS 맨래 저 해보고 있는데 자동으로 매수매도 좀 이렇게 다 기록 되더라고요"
+            },
+            {
+              "time": "00:33:32",
+              "section": "entry_trigger",
+              "text": "상승으로 갈 수도 있고 다시 반등으로 하락으로 간 두 가지가 있지만 상관없다고 어차피 상승으로 가고는 반등으로 하락이건"
+            }
+          ]
+        },
+        {
+          "id": "0fkrl_0Hh6Y",
+          "title": "[2022.06.07]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=0fkrl_0Hh6Y",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 60,
+            "short_score": 8,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:15:12",
+              "section": "chart_structure",
+              "text": "그럼 이 자리 돌파할 때 롱매수를 하자라는 생각으로 비틀을 똑같이 이 자리에서 롱매수를"
+            },
+            {
+              "time": "00:35:22",
+              "section": "chart_structure",
+              "text": "채널 이탈 영원히 채널 안에서 지속되는 건 없고 언젠간 친환이 탈하는데 채널 이탈할 때는 이런 추세방행"
+            },
+            {
+              "time": "00:36:00",
+              "section": "chart_structure",
+              "text": "채널 이탈을 꺼내냈거든요 이 채널 이탈을 했어요 그래서"
+            },
+            {
+              "time": "00:41:51",
+              "section": "chart_structure",
+              "text": "옆 추세로 좋은 자리에서 롱돌아가고 옆 추세로 좋은 재수 쇼돌아가서 이렇게 옆 추세며매를 하라고 하지"
+            },
+            {
+              "time": "01:02:29",
+              "section": "chart_structure",
+              "text": "저점에 올라가, 저점에, 저점에,"
+            },
+            {
+              "time": "01:15:00",
+              "section": "chart_structure",
+              "text": "거래량 뭐 자 지지 뭐 채널 추세 이런 걸 다 보긴 하는데"
+            }
+          ]
+        },
+        {
+          "id": "16GYMSix5Qc",
+          "title": "[2022.08.16]매억남_비트코인 분석방송 #비트코인 #bitcoin #btc #chart analysis",
+          "url": "https://www.youtube.com/watch?v=16GYMSix5Qc",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 42,
+            "short_score": 4,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:14:25",
+              "section": "chart_structure",
+              "text": "하나는 A, B, C로 모양이 반등 멍이 나오면서 멈을 때 다시 여기가 들어오는 자리죠 멈을 때 저항을 받을 줄 알고"
+            },
+            {
+              "time": "00:26:20",
+              "section": "chart_structure",
+              "text": "여기는 4, 8, 8, 8, 8, 8, 9 떨어졌었을 때 짧게 이 고점 또는 저점을 짧게 떨어졌다가"
+            },
+            {
+              "time": "00:47:13",
+              "section": "chart_structure",
+              "text": "그런 경우가 있죠 휩쓰 정확히 휩쓰었는데 올라가면 당연히 다시 쇼치니팔 안 되지 분석에 틀렸다는 건데 왜 쇼스를 진입하겠습니까 그런 게 아니라 여기 라인에서 쇼셜 들어갔는데 이 지지를 저항을 받을 줄 알고 쇼셜 들어갔는데"
+            },
+            {
+              "time": "00:17:01",
+              "section": "entry_trigger",
+              "text": "여기에서 반익절을 빨리 나왔습니다. 왜냐하면 이 자리에 낙가 말씀드렸던 것처럼 몇 가지 조정돼 왔다가 다음 인팔 수 상승파도는 나올 수 있는 자리에 있거든요."
+            },
+            {
+              "time": "00:26:45",
+              "section": "entry_trigger",
+              "text": "또 이 자리가 차트를 봤는데 롱 자리가 보이지 않았다라고 하면"
+            },
+            {
+              "time": "00:44:55",
+              "section": "entry_trigger",
+              "text": "예를 들어서 만약에 분석에 맞아서 에비시반등이 나오고 이렇게 떨어진다고 하면 여기를 깨틀고 떨어질 거거든요 물론 테릴 때 무반등을 수도 있고 반등에 살짝"
+            }
+          ]
+        },
+        {
+          "id": "3aZQNIQ2uCY",
+          "title": "[2021.06.28] Maeoknam_Bitcoin Analysis Broadcast #Bitcoin #Stocks #OverseasFutures #ChartAnalysis",
+          "url": "https://www.youtube.com/watch?v=3aZQNIQ2uCY",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "LONG",
+            "long_score": 47,
+            "short_score": 4,
+            "explanation": "롱/상승/반등 계열 표현이 숏/하락 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:13:28",
+              "section": "chart_structure",
+              "text": "컴퍼미 된다... 못 말이냐면... 비트구엔 가격은 저점은 더..."
+            },
+            {
+              "time": "00:13:31",
+              "section": "chart_structure",
+              "text": "비트구엔 가격은 저점은 더... 경신을 내려고 했는데... 1번 이상 아래쌀을 보면 아래쌀가 올라왔죠..."
+            },
+            {
+              "time": "01:13:01",
+              "section": "chart_structure",
+              "text": "고점 빼기 저점, 고점 빼기 저점에서 이게 더 크면, 이게 더 조정의 크게 온 거고,"
+            },
+            {
+              "time": "00:15:25",
+              "section": "entry_trigger",
+              "text": "그렇기 때문에... 당기간 가격이 소 들이라는 건 알 수 있죠? 그래서 여기서 매수했던 이건스 매수했던..."
+            },
+            {
+              "time": "00:18:33",
+              "section": "entry_trigger",
+              "text": "다시 또 쇼스칭에 따 조금 선물를 하고 그랬다가 밑 아래 구간에서 이 구간에서 롱매수 했고"
+            },
+            {
+              "time": "00:20:17",
+              "section": "entry_trigger",
+              "text": "여기서 매수했고 여기서 매도를 했습니다. 그래서. 이 구간에서 매수 어디서 했었지?"
+            }
+          ]
+        },
+        {
+          "id": "3FFffN4c4EI",
+          "title": "[2026.02.24] Bitcoin Analysis #BitcoinLiveBroadcast",
+          "url": "https://www.youtube.com/watch?v=3FFffN4c4EI",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "MIXED",
+            "long_score": 9,
+            "short_score": 9,
+            "explanation": "상승과 하락 시나리오가 함께 언급되어 조건부 판단으로 봐야 합니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 5,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:16:07",
+              "section": "chart_structure",
+              "text": "이 저점이 괜찮지 않려는 여기도 인퍼스로 인퍼스로 잘 안 보려서 물론 저점이 굉장히 델했고"
+            },
+            {
+              "time": "00:17:11",
+              "section": "chart_structure",
+              "text": "선물을 지금 저점 깨질 때까지 기다려야겠죠 그래서 한번 저점 깨는 열심히 매입하고"
+            },
+            {
+              "time": "00:25:34",
+              "section": "chart_structure",
+              "text": "수봉봉으로 확인하고 들어가는 거죠 그러니까 뭐냐 하면 여기서 떨어져서 채널이 이탈인 줄 알았는데"
+            },
+            {
+              "time": "00:27:01",
+              "section": "chart_structure",
+              "text": "여기가 손절라인 될까요? 아니요, 기준이 없어요 그럼 이전 저항이 여기"
+            },
+            {
+              "time": "00:49:22",
+              "section": "chart_structure",
+              "text": "여기를 채널로 보면 지금이 거의 채널 하단이죠 지금이 거의 채널를 하단입니다 거의 채널를 하단이니까"
+            },
+            {
+              "time": "00:49:55",
+              "section": "chart_structure",
+              "text": "저점을 깨고 내려왔다가 반등이 와서 다시 이 저점을 깨고 올라갈 때 그러면 손절라니 잡히죠"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resistance_failure_short",
+      "name": "저항 실패 숏",
+      "direction": "SHORT",
+      "description": "저항/채널 상단에서 돌파 실패 또는 지지 이탈 후 회복 실패가 나올 때만 숏을 검토합니다.",
+      "support_count": 1,
+      "avg_match_score": 1.0,
+      "confidence": 0.4691,
+      "entry_algorithm": [
+        "저항 또는 채널 상단에서 돌파가 실패한다.",
+        "직전 저점 또는 단기 지지를 이탈한 뒤 되돌림이 실패한다.",
+        "무효화 가격이 직전 고점 근처로 짧게 잡힐 때만 진입한다.",
+        "상위 레짐이 강한 하락이 아니거나, 최소한 단기 구조가 회복 중인지 확인한다.",
+        "진입 전에 손절 기준 구조선이 먼저 계산되어 있어야 한다.",
+        "손절폭 대비 1차 목표까지 기대 보상이 최소 1.4배 이상일 때만 후보로 남긴다."
+      ],
+      "risk_algorithm": {
+        "stop_basis": "LONG이면 지지선/눌림 저점/채널 하단 이탈, SHORT이면 저항선/직전 고점 회복을 무효화 기준으로 둡니다.",
+        "max_stop_distance_pct": 0.5,
+        "min_reward_risk": 1.4,
+        "position_sizing": "손절 시 계좌 손실이 0.6%를 넘지 않도록 수량을 역산합니다. 고확신 카드라도 1회 최대 1.0% 손실을 넘기지 않습니다.",
+        "scale_rule": "확인 전 40%, 확인 후 60% 분할 진입을 기본으로 하며, 손절선이 멀어지면 추가 진입하지 않습니다."
+      },
+      "exit_algorithm": [
+        "1차 목표는 직전 저점 또는 박스 하단입니다.",
+        "2차 목표는 다음 지지 또는 하락 파동 목표 구간입니다.",
+        "1차 목표 도달 후 절반 청산, 남은 수량은 진입가 또는 되돌림 고점 아래로 트레일링합니다.",
+        "하락 이탈 후 바로 회복하면 목표 도달 전이라도 정리합니다."
+      ],
+      "avoid_conditions": [
+        "손절선이 멀어 기대 손익비가 1.4 미만이면 진입하지 않습니다.",
+        "박스 중앙처럼 지지/저항 양쪽까지 거리가 애매한 위치는 진입하지 않습니다.",
+        "이미 급등/급락 후 목표가에 가까운 위치에서는 추격하지 않습니다.",
+        "차트 구조, 진입 트리거, 손절 근거 중 하나라도 비면 ACTIONABLE에서 제외합니다.",
+        "상위 구조가 강한 상승이고 저항 돌파 후 안착하면 숏 카드는 중단합니다."
+      ],
+      "score_formula": {
+        "weights": {
+          "structure_score": 0.22,
+          "trigger_score": 0.18,
+          "stop_quality_score": 0.2,
+          "reward_risk_score": 0.16,
+          "wave_position_score": 0.1,
+          "regime_score": 0.08,
+          "volume_confirmation_score": 0.06,
+          "chase_penalty": -0.16,
+          "chop_penalty": -0.12
+        },
+        "entry_threshold": 0.72,
+        "watch_threshold": 0.58,
+        "hard_blocks": [
+          "손절 기준 없음",
+          "기대 손익비 1.4 미만",
+          "스프레드/슬리피지 과다",
+          "최근 3회 같은 카드 연속 손절"
+        ]
+      },
+      "validation_plan": {
+        "backtest_unit": "1분/5분/15분 OHLCV에서 카드 조건이 처음 충족된 시점을 진입 후보로 기록합니다.",
+        "labels": [
+          "entry_time",
+          "entry_price",
+          "stop_price",
+          "target1",
+          "target2",
+          "max_favorable_excursion",
+          "max_adverse_excursion",
+          "result_r_multiple"
+        ],
+        "minimum_sample": 80,
+        "pass_criteria": {
+          "win_rate_min": 0.46,
+          "avg_r_min": 0.18,
+          "profit_factor_min": 1.18,
+          "max_drawdown_r_limit": -8.0
+        },
+        "paper_trade_gate": "백테스트 통과 후 모의거래 50회에서 profit factor 1.1 이상일 때만 실거래 후보로 승격합니다."
+      },
+      "examples": [
+        {
+          "id": "JMauobJHxIQ",
+          "title": "[2022.02.01]매억남_비트코인 분석방송 #비트코인 #주식 #해외선물 #차트분석",
+          "url": "https://www.youtube.com/watch?v=JMauobJHxIQ",
+          "match_score": 1.0,
+          "bias": {
+            "primary_bias": "SHORT",
+            "long_score": 8,
+            "short_score": 16,
+            "explanation": "숏/하락/이탈 계열 표현이 롱/상승 표현보다 뚜렷하게 많습니다."
+          },
+          "trade_readiness": {
+            "level": "ACTIONABLE",
+            "score": 6,
+            "reason": "구조, 진입, 손절이 함께 잡혀 있고 청산 또는 파동 필터까지 있어 실전 규칙 후보로 볼 수 있습니다."
+          },
+          "evidence": [
+            {
+              "time": "00:15:31",
+              "section": "chart_structure",
+              "text": "지금 저항에 나온 것 같은데 지금 같은 저항을 받고 이 가격대의 저항을 받고 있고"
+            },
+            {
+              "time": "00:17:13",
+              "section": "chart_structure",
+              "text": "저항 안 받는다는 점, 추세 조항을 두르고 를 따는 점에서 최소한 이 라인까지는 갈거라고 보는 게"
+            },
+            {
+              "time": "00:19:36",
+              "section": "chart_structure",
+              "text": "전한되면 되는데, 이렇게 채널이 형성됐을 때, 채널을 깨고 이탈하거나,"
+            },
+            {
+              "time": "00:44:39",
+              "section": "chart_structure",
+              "text": "펜클로 가봅 고맙습니다 지저도 좋니 추세면에 돌페면에 뭐가 더 좋은가요 추세면에 돌파 매네"
+            },
+            {
+              "time": "00:52:43",
+              "section": "chart_structure",
+              "text": "다른 조건들을 살펴봐요 그래서 이런 저항대로 하진과 추세라인을 하는가 저 혼자라는 잡을 수 있는 데가 있으면"
+            },
+            {
+              "time": "00:44:03",
+              "section": "entry_trigger",
+              "text": "초보 분들은 매수 올라갈 거 같은 거 사겠죠 매수랑 했죠 근데 정확하게 내가 살 때 얼마에 손절 치시는 잘 안 좋아하더라고요"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

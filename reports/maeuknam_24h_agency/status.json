@@ -1,0 +1,65 @@
+{
+  "counters": {
+    "cycles": 260,
+    "issueCounts": {
+      "agency_veto": 11,
+      "entry_block": 142,
+      "execution_contradiction": 1,
+      "fee_drag": 137,
+      "inverse_risk": 212,
+      "no_trade_deadlock": 136,
+      "operational_reset": 1
+    },
+    "resets": 1
+  },
+  "endsAt": "2026-05-10T11:18:10.041000+00:00",
+  "lastFingerprint": "BTCUSDT::LONG::::::manual futures paper mode is active until LONG/SHORT/STOP is pressed::::entry_block::",
+  "latestObservation": {
+    "actions": [],
+    "candidate": {
+      "entryAllowed": false,
+      "entryBlockReason": "",
+      "entryStage": "",
+      "htf": {
+        "aligned": 0,
+        "missing": 3,
+        "neutral": 0,
+        "opposed": 0
+      },
+      "price": "80338",
+      "score": "0.01929720812972703787855208689",
+      "side": "LONG",
+      "symbol": "BTCUSDT",
+      "techniqueId": ""
+    },
+    "entryBlockReason": "manual futures paper mode is active until LONG/SHORT/STOP is pressed",
+    "fingerprint": "BTCUSDT::LONG::::::manual futures paper mode is active until LONG/SHORT/STOP is pressed::::entry_block::",
+    "issues": [
+      {
+        "code": "entry_block",
+        "level": "warning",
+        "message": "manual futures paper mode is active until LONG/SHORT/STOP is pressed"
+      }
+    ],
+    "observedAt": "2026-05-09T13:33:13.807635+00:00",
+    "paper": {
+      "equityUsdt": "975.0818549239019623025785271",
+      "feesPaidUsdt": "48.26291519812307228972754853",
+      "lastOrderAt": "2026-05-09T13:30:15.193716+00:00",
+      "openPositions": 1,
+      "orderCount": 3,
+      "realizedPnlUsdt": "-0.113404576504687389162193746",
+      "secondsSinceLastOrder": 178,
+      "walletBalanceUsdt": "956.6217263687454928950363522"
+    },
+    "resetAction": null
+  },
+  "name": "Maeuknam 24h Paper Agency",
+  "paths": {
+    "events": "reports\\maeuknam_24h_agency\\events.jsonl",
+    "report": "reports\\maeuknam_24h_agency\\report.md",
+    "status": "reports\\maeuknam_24h_agency\\status.json"
+  },
+  "startedAt": "2026-05-09T11:18:10.041000+00:00",
+  "updatedAt": "2026-05-09T13:33:13.807635+00:00"
+}

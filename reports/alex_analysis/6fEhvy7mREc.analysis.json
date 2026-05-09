@@ -1,0 +1,1213 @@
+{
+  "methodName": "알렉스 매매기법",
+  "methodSubtitle": "0.5 평균값 + 유동성 + 하나둘셋넷 확인법",
+  "status": "single-video-first-pass",
+  "source": {
+    "id": "6fEhvy7mREc",
+    "title": "해외에서 돈 쓸어 담는다는 트레이딩 기법 feat. 팀멘사",
+    "channel": "강민우 돈깡TV",
+    "uploadDate": "20250928",
+    "durationSeconds": 1112,
+    "url": "https://www.youtube.com/watch?v=6fEhvy7mREc"
+  },
+  "artifacts": {
+    "transcript": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_transcripts\\6fEhvy7mREc.transcript.txt",
+    "framesJson": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc_frames.json",
+    "contactSheet": "C:\\Users\\cotmd\\OneDrive\\문서\\New project\\autotrading\\reports\\alex_chart_frames\\6fEhvy7mREc_contact_sheet.jpg"
+  },
+  "counts": {
+    "transcriptLines": 549,
+    "evidenceItems": 118,
+    "chartFrames": 18
+  },
+  "coreRules": [
+    "방향은 롱/숏을 미리 고정하지 않고, 상위 구조와 유동성 위치로 결정한다.",
+    "0.5 평균값은 추세 범위의 기준선이며 상승 추세에서는 디스카운트, 하락 추세에서는 프리미엄 대기 구간으로 사용한다.",
+    "진입은 1-2-3을 확인한 뒤 네 번째 신호까지 기다리는 방식으로 제한한다.",
+    "손절은 0.5 자체가 아니라 진입 근거가 된 구조의 무효화 지점에 둔다.",
+    "세션 오픈과 12시간/30분 구조는 조작 움직임을 추적하는 보조 필터로 쓴다."
+  ],
+  "strategyCards": [
+    {
+      "id": "alex_liquidity_discount_long",
+      "method": "알렉스 매매기법",
+      "direction": "LONG",
+      "title": "상승 추세 0.5 디스카운트 롱",
+      "timeframes": [
+        "HTF trend range",
+        "30m/low timeframe confirmation"
+      ],
+      "entry": [
+        "고점과 저점이 높아지는 상승 구조를 먼저 확인한다.",
+        "직전 의미 있는 저점-고점 범위의 0.5 평균값을 긋고, 0.5 이하 디스카운트 구간을 기다린다.",
+        "하락 유동성 소진 또는 저점 훼손 실패 후 1-2-3 구조가 보이면 네 번째 확인에서만 진입한다."
+      ],
+      "stop": [
+        "네 번째 확인을 만든 저점 또는 디스카운트 구간 하단이 깨지면 무효화한다.",
+        "0.5를 맞히려는 선진입은 금지하고, 구조가 박스권으로 바뀌면 즉시 후보에서 제외한다."
+      ],
+      "takeProfit": [
+        "1차 목표는 직전 고점 또는 위쪽 유동성 구간이다.",
+        "강한 추세가 유지되면 프리미엄 구간의 다음 유동성까지 일부를 끌고 간다."
+      ],
+      "forbidden": [
+        "0.5 터치만으로 진입하지 않는다.",
+        "상단 유동성 목표가 수수료와 슬리피지를 덮지 못하면 진입하지 않는다.",
+        "세 번째 확인 전에는 추격 진입하지 않는다."
+      ],
+      "evidenceTimes": [
+        "00:00:00",
+        "00:00:09",
+        "00:03:44",
+        "00:03:46",
+        "00:03:48",
+        "00:03:56",
+        "00:06:47",
+        "00:07:44"
+      ]
+    },
+    {
+      "id": "alex_liquidity_premium_short",
+      "method": "알렉스 매매기법",
+      "direction": "SHORT",
+      "title": "하락 추세 0.5 프리미엄 숏",
+      "timeframes": [
+        "HTF trend range",
+        "30m/low timeframe confirmation"
+      ],
+      "entry": [
+        "저점과 고점이 낮아지는 하락 구조를 먼저 확인한다.",
+        "직전 의미 있는 고점-저점 범위의 0.5 평균값을 긋고, 0.5 이상 프리미엄 구간을 기다린다.",
+        "상단 유동성 흡수 또는 고점 돌파 실패 후 1-2-3 구조가 보이면 네 번째 확인에서만 진입한다."
+      ],
+      "stop": [
+        "네 번째 확인을 만든 고점 또는 프리미엄 구간 상단이 깨지면 무효화한다.",
+        "프리미엄 구간 안에서도 박스권 전환이면 숏 후보를 취소한다."
+      ],
+      "takeProfit": [
+        "1차 목표는 직전 저점 또는 아래쪽 유동성 구간이다.",
+        "하락 추세가 유지되면 디스카운트 구간의 다음 유동성까지 일부를 끌고 간다."
+      ],
+      "forbidden": [
+        "프리미엄 도달만으로 진입하지 않는다.",
+        "아래쪽 유동성 목표가 비용보다 작으면 진입하지 않는다.",
+        "네 번째 확인 없이 반대매매 예측으로 진입하지 않는다."
+      ],
+      "evidenceTimes": [
+        "00:03:44",
+        "00:03:46",
+        "00:03:48",
+        "00:03:56",
+        "00:04:15",
+        "00:05:34",
+        "00:06:33",
+        "00:06:37"
+      ]
+    },
+    {
+      "id": "alex_session_open_manipulation",
+      "method": "알렉스 매매기법",
+      "direction": "BOTH",
+      "title": "세션 오픈 조작 후 4카운트 진입",
+      "timeframes": [
+        "12h session candle",
+        "30m execution"
+      ],
+      "entry": [
+        "세션 오픈 전후의 12시간 기준 범위를 잡고, 30분 단위에서 움직임을 관찰한다.",
+        "초반 흔들림이 위 또는 아래 유동성을 건드린 뒤 원래 구조로 복귀하는지 확인한다.",
+        "방향은 미리 고정하지 않고, 복귀 방향의 1-2-3 뒤 네 번째 확인에서 진입한다."
+      ],
+      "stop": [
+        "세션 조작으로 판단한 꼬리 또는 복귀 실패 지점이 깨지면 무효화한다.",
+        "오픈 직후 변동성만 보고 바로 진입하지 않는다."
+      ],
+      "takeProfit": [
+        "첫 목표는 반대편 유동성 또는 0.5 평균값이다.",
+        "반대편까지 도달한 뒤에는 잔여 물량만 다음 유동성으로 넘긴다."
+      ],
+      "forbidden": [
+        "세션 시간만 맞았다고 진입하지 않는다.",
+        "유동성, 0.5 구간, 4카운트 중 하나라도 없으면 관찰만 한다."
+      ],
+      "evidenceTimes": [
+        "00:00:51",
+        "00:00:53",
+        "00:02:15",
+        "00:02:23",
+        "00:06:28",
+        "00:08:47",
+        "00:12:38",
+        "00:12:50"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "start": 0,
+      "time": "00:00:00",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "하나 둘 셋 입고 이제 넷을 기다리면",
+      "context_snippet": "하나 둘 셋 입고 이제 넷을 기다리면 되죠."
+    },
+    {
+      "start": 6,
+      "time": "00:00:06",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": ">> 오케이. 여기서 진입하면 되고.",
+      "context_snippet": ">> 네. >> 오케이. 여기서 진입하면 되고. >> 네."
+    },
+    {
+      "start": 9,
+      "time": "00:00:09",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 보이시죠? 하나 둘 셋 넷.",
+      "context_snippet": ">> 네. >> 보이시죠? 하나 둘 셋 넷. 보이시죠? 이런 거 이거를"
+    },
+    {
+      "start": 51,
+      "time": "00:00:51",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": "되고이 유동성이 어디에 많이 그",
+      "context_snippet": "켜고 어느 사이트에 들어가서 뭘 봐야 되고이 유동성이 어디에 많이 그 롱쇼에 배치되어 있는지 그런 것들을"
+    },
+    {
+      "start": 53,
+      "time": "00:00:53",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": "롱쇼에 배치되어 있는지 그런 것들을",
+      "context_snippet": "되고이 유동성이 어디에 많이 그 롱쇼에 배치되어 있는지 그런 것들을 오늘 한번 제가 배우려고 초대한 이제"
+    },
+    {
+      "start": 135,
+      "time": "00:02:15",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": ">> 예. 그 스마트머니 그 세력들을",
+      "context_snippet": "트레이딩 방법이군요. >> 예. 그 스마트머니 그 세력들을 타락가는 컨셉트예요. 팔차골 보고"
+    },
+    {
+      "start": 140,
+      "time": "00:02:20",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입하고 이렇게 거래하는",
+      "context_snippet": "타락가는 컨셉트예요. 팔차골 보고 진입하고 이렇게 거래하는 매매법이에요."
+    },
+    {
+      "start": 143,
+      "time": "00:02:23",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": ">> 오, 그러면 전체 이제 스마트니의",
+      "context_snippet": ">> 어, 되게 재밌는데요. >> 오, 그러면 전체 이제 스마트니의 자금이 어떻게 흘러가는지 추적하면서"
+    },
+    {
+      "start": 224,
+      "time": "00:03:44",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "0.5 레벨이 있을 거예요.이 0.5",
+      "context_snippet": "이 초점에서 고점까지 걸면은 이렇게 0.5 레벨이 있을 거예요.이 0.5 레벨이 평균값이"
+    },
+    {
+      "start": 226,
+      "time": "00:03:46",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "레벨이 평균값이",
+      "context_snippet": "0.5 레벨이 있을 거예요.이 0.5 레벨이 평균값이 >> 기간 동안의 평균값이라는 거."
+    },
+    {
+      "start": 228,
+      "time": "00:03:48",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 기간 동안의 평균값이라는 거.",
+      "context_snippet": "레벨이 평균값이 >> 기간 동안의 평균값이라는 거. >> 예예. 맞아요. 돼. 이렇게 해"
+    },
+    {
+      "start": 236,
+      "time": "00:03:56",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "트렌드에서이 0.5 가격이이 내려올",
+      "context_snippet": "여기 있어요. 우리가 상승 트렌드에서이 0.5 가격이이 내려올 때 0.5 밑에는이 디스카운 구간이"
+    },
+    {
+      "start": 239,
+      "time": "00:03:59",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "때 0.5 밑에는이 디스카운 구간이",
+      "context_snippet": "트렌드에서이 0.5 가격이이 내려올 때 0.5 밑에는이 디스카운 구간이 있어요. 이게 무슨 말이냐면 한국말로"
+    },
+    {
+      "start": 244,
+      "time": "00:04:04",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "할인 구간.이 0.5 위에는 비싼",
+      "context_snippet": "있어요. 이게 무슨 말이냐면 한국말로 할인 구간.이 0.5 위에는 비싼 구간. 프리미엄. 우리가 상승"
+    },
+    {
+      "start": 247,
+      "time": "00:04:07",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "구간. 프리미엄. 우리가 상승",
+      "context_snippet": "할인 구간.이 0.5 위에는 비싼 구간. 프리미엄. 우리가 상승 트렌드에서이 0.5레벨이나 아니면은"
+    },
+    {
+      "start": 249,
+      "time": "00:04:09",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "트렌드에서이 0.5레벨이나 아니면은",
+      "context_snippet": "구간. 프리미엄. 우리가 상승 트렌드에서이 0.5레벨이나 아니면은 디스카운 구간에서 자기 포지션 기회를"
+    },
+    {
+      "start": 251,
+      "time": "00:04:11",
+      "categories": [
+        "value_zone",
+        "entry_trigger"
+      ],
+      "snippet": "디스카운 구간에서 자기 포지션 기회를",
+      "context_snippet": "트렌드에서이 0.5레벨이나 아니면은 디스카운 구간에서 자기 포지션 기회를 찾으면 돼요. 예."
+    },
+    {
+      "start": 255,
+      "time": "00:04:15",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": ">> 그러면 손절은 손절이라고 하는 건",
+      "context_snippet": "찾으면 돼요. 예. >> 그러면 손절은 손절이라고 하는 건 어디어요?"
+    },
+    {
+      "start": 266,
+      "time": "00:04:26",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "만약에 0.5 레벨 테스트하잖아요.",
+      "context_snippet": ">> 네. 일단은 이렇게 기억하시면 되고 만약에 0.5 레벨 테스트하잖아요. 디스카운크가 내려오면은 옵티멀티"
+    },
+    {
+      "start": 267,
+      "time": "00:04:27",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "디스카운크가 내려오면은 옵티멀티",
+      "context_snippet": "만약에 0.5 레벨 테스트하잖아요. 디스카운크가 내려오면은 옵티멀티 엔트리라는 요구 있어요."
+    },
+    {
+      "start": 303,
+      "time": "00:05:03",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 그러면 여기 0.5의 평균을 놓고",
+      "context_snippet": "단계예요. >> 그러면 여기 0.5의 평균을 놓고 아까 OT를 설정하면은 어느 구간에서"
+    },
+    {
+      "start": 314,
+      "time": "00:05:14",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "프리미엄 디스카운트 구간이 있고이",
+      "context_snippet": "기억하시면 돼요. 쌍산 트렌드에서 프리미엄 디스카운트 구간이 있고이 평균값이 있어요.이 평균값을 잡기"
+    },
+    {
+      "start": 316,
+      "time": "00:05:16",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "평균값이 있어요.이 평균값을 잡기",
+      "context_snippet": "프리미엄 디스카운트 구간이 있고이 평균값이 있어요.이 평균값을 잡기 위해서는 우리가 피보나시를"
+    },
+    {
+      "start": 322,
+      "time": "00:05:22",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "걸면은이 0.5레벨이 있을 거예요.",
+      "context_snippet": "사용합니다.이 초점에서 고점까지 걸면은이 0.5레벨이 있을 거예요. 이거는 변값이 돼요. 우리는이"
+    },
+    {
+      "start": 326,
+      "time": "00:05:26",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "구간에서 디스카운 0.5레벨에서",
+      "context_snippet": "이거는 변값이 돼요. 우리는이 구간에서 디스카운 0.5레벨에서 레벨에서 진입 기회를 찾으면 돼요."
+    },
+    {
+      "start": 328,
+      "time": "00:05:28",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "레벨에서 진입 기회를 찾으면 돼요.",
+      "context_snippet": "구간에서 디스카운 0.5레벨에서 레벨에서 진입 기회를 찾으면 돼요. 그리고이 하락된 있잖아요.이 쌍성때는"
+    },
+    {
+      "start": 334,
+      "time": "00:05:34",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": "반전돼서이 하락되는 바뀌잖아요.",
+      "context_snippet": "영원히 진행될 수 없고 언젠가이 반전돼서이 하락되는 바뀌잖아요. 논리는 똑같아요. 고점 저점 고점"
+    },
+    {
+      "start": 339,
+      "time": "00:05:39",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "저점 이렇게 있잖아요. 그 평균 값을",
+      "context_snippet": "논리는 똑같아요. 고점 저점 고점 저점 이렇게 있잖아요. 그 평균 값을 잡기 위해서는이 고점에서 저점까지"
+    },
+    {
+      "start": 353,
+      "time": "00:05:53",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "숏 포지션을 잡았을 때 여기서 숏을",
+      "context_snippet": ">> 첫 번째 목표는이 조치면 돼요. 아 숏 포지션을 잡았을 때 여기서 숏을 잡고 여기서 익절할 수 있는네"
+    },
+    {
+      "start": 360,
+      "time": "00:06:00",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "위에는이 프레미엄 비싼 구간이",
+      "context_snippet": ">> 여기서 나가서 끝내야 돼요. 예.레벨 위에는이 프레미엄 비싼 구간이 0.5는 디스카운트 우리는 하락된"
+    },
+    {
+      "start": 362,
+      "time": "00:06:02",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "0.5는 디스카운트 우리는 하락된",
+      "context_snippet": "위에는이 프레미엄 비싼 구간이 0.5는 디스카운트 우리는 하락된 데서 이억을 집중해야 돼요. 0.5"
+    },
+    {
+      "start": 365,
+      "time": "00:06:05",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "데서 이억을 집중해야 돼요. 0.5",
+      "context_snippet": "0.5는 디스카운트 우리는 하락된 데서 이억을 집중해야 돼요. 0.5 위에"
+    },
+    {
+      "start": 372,
+      "time": "00:06:12",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 그렇죠.이 만약에 이게 가격이 0.5",
+      "context_snippet": ">> 근데 여기서도 그럼를 쓰는 건가? >> 그렇죠.이 만약에 이게 가격이 0.5 있잖아요. 0.5 테스트해 올라가는"
+    },
+    {
+      "start": 374,
+      "time": "00:06:14",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "있잖아요. 0.5 테스트해 올라가는",
+      "context_snippet": ">> 그렇죠.이 만약에 이게 가격이 0.5 있잖아요. 0.5 테스트해 올라가는 때는 엔레벨을"
+    },
+    {
+      "start": 388,
+      "time": "00:06:28",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "캔들 몸통으로 닫치면은 우리한테",
+      "context_snippet": ">> 예를 들어서 만약에 가격이 079를 캔들 몸통으로 닫치면은 우리한테 신호해요. 가격이 여기 스입되거나"
+    },
+    {
+      "start": 393,
+      "time": "00:06:33",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": "아니면 이게 박스권으로 변경할 수",
+      "context_snippet": "신호해요. 가격이 여기 스입되거나 아니면 이게 박스권으로 변경할 수 있다. 아니면은 판전이 될 수 있다."
+    },
+    {
+      "start": 397,
+      "time": "00:06:37",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": ">> 여길 넘어서면은 가격이 반전될 수",
+      "context_snippet": ">> 아 >> 여길 넘어서면은 가격이 반전될 수 있다."
+    },
+    {
+      "start": 399,
+      "time": "00:06:39",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": ">> 네. 반전 될 수 있다. 아니면은",
+      "context_snippet": "있다. >> 네. 반전 될 수 있다. 아니면은 박스권으로 이렇게 될 수 있다."
+    },
+    {
+      "start": 400,
+      "time": "00:06:40",
+      "categories": [
+        "risk_invalidation"
+      ],
+      "snippet": "박스권으로 이렇게 될 수 있다.",
+      "context_snippet": ">> 네. 반전 될 수 있다. 아니면은 박스권으로 이렇게 될 수 있다. >> 아, 그러니까 조심해야 되는"
+    },
+    {
+      "start": 407,
+      "time": "00:06:47",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 초점 고점 초점 하나 둘 셋.",
+      "context_snippet": "드릴게요. >> 초점 고점 초점 하나 둘 셋. 그래서이 초점에서 고점까지 걸면은이"
+    },
+    {
+      "start": 430,
+      "time": "00:07:10",
+      "categories": [
+        "value_zone",
+        "entry_trigger"
+      ],
+      "snippet": "거는이 우리가 0.5레벨에서 진입 첫",
+      "context_snippet": "저점에서 점까지 면은 아까 말씀드린 거는이 우리가 0.5레벨에서 진입 첫 번째 목표는 여기고"
+    },
+    {
+      "start": 438,
+      "time": "00:07:18",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 0.몰레벨 평균 값을 테스트하고 이",
+      "context_snippet": ">> 위로 올라가면은 상승 >> 0.몰레벨 평균 값을 테스트하고 이 >> 세력들이 상승내서 프리미엄 구간에서"
+    },
+    {
+      "start": 441,
+      "time": "00:07:21",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 세력들이 상승내서 프리미엄 구간에서",
+      "context_snippet": ">> 0.몰레벨 평균 값을 테스트하고 이 >> 세력들이 상승내서 프리미엄 구간에서 안 사요.이 0.5레벨 맞추려고"
+    },
+    {
+      "start": 443,
+      "time": "00:07:23",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "안 사요.이 0.5레벨 맞추려고",
+      "context_snippet": ">> 세력들이 상승내서 프리미엄 구간에서 안 사요.이 0.5레벨 맞추려고 해요. 절대 여기서 뭐 프리미엄에서"
+    },
+    {
+      "start": 445,
+      "time": "00:07:25",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "해요. 절대 여기서 뭐 프리미엄에서",
+      "context_snippet": "안 사요.이 0.5레벨 맞추려고 해요. 절대 여기서 뭐 프리미엄에서 싸는 거 아니고 프레임에서 언제"
+    },
+    {
+      "start": 448,
+      "time": "00:07:28",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "사냐면이 슛 포지션을 요리고 첫 번째",
+      "context_snippet": "싸는 거 아니고 프레임에서 언제 사냐면이 슛 포지션을 요리고 첫 번째 목표는이 고점."
+    },
+    {
+      "start": 464,
+      "time": "00:07:44",
+      "categories": [
+        "four_count_confirmation",
+        "risk_invalidation"
+      ],
+      "snippet": "하나 둘 이게 깨지잖아요.",
+      "context_snippet": "보이시죠?이 초점 하나 둘 이게 깨지잖아요. >> 음"
+    },
+    {
+      "start": 473,
+      "time": "00:07:53",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 현재이 가격이 0.5 평균값이요.",
+      "context_snippet": "고점에서 저점까지 걸면은 >> 현재이 가격이 0.5 평균값이요. 하나 둘 셋 이제 넷을 기다리면"
+    },
+    {
+      "start": 476,
+      "time": "00:07:56",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "하나 둘 셋 이제 넷을 기다리면",
+      "context_snippet": ">> 현재이 가격이 0.5 평균값이요. 하나 둘 셋 이제 넷을 기다리면 되죠."
+    },
+    {
+      "start": 488,
+      "time": "00:08:08",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "번째 목표는 여기요. 하나 둘 셋",
+      "context_snippet": ">> 보이시죠? 오케이. 렛츠 고. 첫 번째 목표는 여기요. 하나 둘 셋 넷. 진입."
+    },
+    {
+      "start": 491,
+      "time": "00:08:11",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "넷. 진입.",
+      "context_snippet": "번째 목표는 여기요. 하나 둘 셋 넷. 진입. >> 첫 번째 목표. 오케이. 이제 하나"
+    },
+    {
+      "start": 495,
+      "time": "00:08:15",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "둘 셋. 이제 넷을 기다려야",
+      "context_snippet": ">> 첫 번째 목표. 오케이. 이제 하나 둘 셋. 이제 넷을 기다려야 되잖아요.이 고점에서 저점까지"
+    },
+    {
+      "start": 502,
+      "time": "00:08:22",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "우리는 숏 포지션을 열릴 때이",
+      "context_snippet": "끌면은이 0.8이 있을 거예요. 우리는 숏 포지션을 열릴 때이 프레임을 구간에서 진입 기회를 찾으면"
+    },
+    {
+      "start": 503,
+      "time": "00:08:23",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "프레임을 구간에서 진입 기회를 찾으면",
+      "context_snippet": "우리는 숏 포지션을 열릴 때이 프레임을 구간에서 진입 기회를 찾으면 돼요. 그러면은이 또 아래 가잖아요."
+    },
+    {
+      "start": 510,
+      "time": "00:08:30",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 그러면이 넷을 기다리면 되죠.",
+      "context_snippet": "그러면은 또 흘리면 되죠. >> 그러면이 넷을 기다리면 되죠. 테스트이 반응을 해 주죠. 올라갔죠?"
+    },
+    {
+      "start": 515,
+      "time": "00:08:35",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "우찌를 0.5레벨 첫 번째 목표는",
+      "context_snippet": "오케이. 그러면은이 바뀌면 되죠. 우찌를 0.5레벨 첫 번째 목표는 이거죠."
+    },
+    {
+      "start": 521,
+      "time": "00:08:41",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "하나 둘 셋이 넷을 기다린 다음에",
+      "context_snippet": "이거죠. 하나 둘 셋이 넷을 기다린 다음에 진입."
+    },
+    {
+      "start": 524,
+      "time": "00:08:44",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입.",
+      "context_snippet": "하나 둘 셋이 넷을 기다린 다음에 진입. >> 아 뭔 말인지 알겠어."
+    },
+    {
+      "start": 527,
+      "time": "00:08:47",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 기다려야 되는데 기다릴 수",
+      "context_snippet": ">> 근데 여기서 8시간 기다려야 되는데 12시간 기다려야 되는데 기다릴 수 있어."
+    },
+    {
+      "start": 546,
+      "time": "00:09:06",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 보이시죠 하나 둘 셋 오케이 그러면은",
+      "context_snippet": ">> 장난해 장난 >> 보이시죠 하나 둘 셋 오케이 그러면은 또 하면 되죠"
+    },
+    {
+      "start": 563,
+      "time": "00:09:23",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "오티나 전체 평균을 정하는 거 이거는",
+      "context_snippet": ">> 어 그럼 여기서 핵심은 내가 볼 때이 오티나 전체 평균을 정하는 거 이거는 익숙해지면 되는 거 같고 결국요"
+    },
+    {
+      "start": 638,
+      "time": "00:10:38",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": ">> 자기 체크리스트가 다 있고 그 기준에",
+      "context_snippet": "어디 들어가 이거는 노 이거는 >> 자기 체크리스트가 다 있고 그 기준에 충족하면은 들어간다"
+    },
+    {
+      "start": 649,
+      "time": "00:10:49",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": "유동성 세 번째 우리가이 포이이",
+      "context_snippet": "번째 이거 마크 스트라처 그리고 유동성 세 번째 우리가이 포이이 포인의 관심 구간 포인트 오브 아"
+    },
+    {
+      "start": 659,
+      "time": "00:10:59",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "구간에서 우리가 진입 포지션을 열린",
+      "context_snippet": ">> 우리 그 한국어로이 컨심 구간이 관심 구간에서 우리가 진입 포지션을 열린 거죠"
+    },
+    {
+      "start": 663,
+      "time": "00:11:03",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입할지 미리 가격권에 설정해 놓는",
+      "context_snippet": ">> 아 그러니까 내가 오늘 어디에 진입할지 미리 가격권에 설정해 놓는 계획하는"
+    },
+    {
+      "start": 667,
+      "time": "00:11:07",
+      "categories": [
+        "entry_trigger",
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 예 알람 맞추고 이게 하나 둘 셋",
+      "context_snippet": "계획하는 >> 예 알람 맞추고 이게 하나 둘 셋 우리가이 프리미엄 휘보나 통해서 관심"
+    },
+    {
+      "start": 670,
+      "time": "00:11:10",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "우리가이 프리미엄 휘보나 통해서 관심",
+      "context_snippet": ">> 예 알람 맞추고 이게 하나 둘 셋 우리가이 프리미엄 휘보나 통해서 관심 구원 잡고 알람 맞추면 되잖아요."
+    },
+    {
+      "start": 672,
+      "time": "00:11:12",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "구원 잡고 알람 맞추면 되잖아요.",
+      "context_snippet": "우리가이 프리미엄 휘보나 통해서 관심 구원 잡고 알람 맞추면 되잖아요. 관심 내려오면은 그때이 반단할 수"
+    },
+    {
+      "start": 680,
+      "time": "00:11:20",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "디스카운 아까 보여 드린 거 그리고",
+      "context_snippet": ">> 그리고 아까 그 PD이 프레미엄 디스카운 아까 보여 드린 거 그리고 컨필 로우 타임 프레임 LTF 밟고"
+    },
+    {
+      "start": 687,
+      "time": "00:11:27",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": ">> 예 그렇죠. 이게 하나 둘 셋 넷",
+      "context_snippet": "이렇게 체크하는 거 >> 예 그렇죠. 이게 하나 둘 셋 넷 다섯 이거만 알고 있으면 주문해요."
+    },
+    {
+      "start": 689,
+      "time": "00:11:29",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "다섯 이거만 알고 있으면 주문해요.",
+      "context_snippet": ">> 예 그렇죠. 이게 하나 둘 셋 넷 다섯 이거만 알고 있으면 주문해요. 유동성 그리고 내 오늘 전략의 가격"
+    },
+    {
+      "start": 692,
+      "time": "00:11:32",
+      "categories": [
+        "liquidity_map"
+      ],
+      "snippet": "유동성 그리고 내 오늘 전략의 가격",
+      "context_snippet": "다섯 이거만 알고 있으면 주문해요. 유동성 그리고 내 오늘 전략의 가격 구간 요런 것들을 쭉 한번"
+    },
+    {
+      "start": 697,
+      "time": "00:11:37",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "체크리스트로 설정하고 그다음에",
+      "context_snippet": "구간 요런 것들을 쭉 한번 체크리스트로 설정하고 그다음에 진입하는 거구나. 네. 그죠."
+    },
+    {
+      "start": 699,
+      "time": "00:11:39",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입하는 거구나. 네. 그죠.",
+      "context_snippet": "체크리스트로 설정하고 그다음에 진입하는 거구나. 네. 그죠. >> 이거 다 하면은 진입하기 어렵겠다."
+    },
+    {
+      "start": 700,
+      "time": "00:11:40",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": ">> 이거 다 하면은 진입하기 어렵겠다.",
+      "context_snippet": "진입하는 거구나. 네. 그죠. >> 이거 다 하면은 진입하기 어렵겠다. 그래서 기회가 많이 없겠네요."
+    },
+    {
+      "start": 758,
+      "time": "00:12:38",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "같고 각 세션별로 일어나는 변동성",
+      "context_snippet": "대한 간단한 내용은 설명이 다 된 거 같고 각 세션별로 일어나는 변동성 안에서 팁 하나만 알려 주시고"
+    },
+    {
+      "start": 770,
+      "time": "00:12:50",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "있어요. 어떤 거 보이시죠? 킨 캔들",
+      "context_snippet": "우리 그 맨사 팀 무료로 채용할 수 있어요. 어떤 거 보이시죠? 킨 캔들 큰 타임프레임 예를 들어서 이게"
+    },
+    {
+      "start": 774,
+      "time": "00:12:54",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "한시간 같은 경우에는 이거는 원데이",
+      "context_snippet": "큰 타임프레임 예를 들어서 이게 한시간 같은 경우에는 이거는 원데이 타임프레임이잖아요. 캔들 원데이"
+    },
+    {
+      "start": 776,
+      "time": "00:12:56",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "타임프레임이잖아요. 캔들 원데이",
+      "context_snippet": "한시간 같은 경우에는 이거는 원데이 타임프레임이잖아요. 캔들 원데이 캔들의 로우 타임프레임은 한시간"
+    },
+    {
+      "start": 778,
+      "time": "00:12:58",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "캔들의 로우 타임프레임은 한시간",
+      "context_snippet": "타임프레임이잖아요. 캔들 원데이 캔들의 로우 타임프레임은 한시간 이거를 진짜 잘 독로 쓰면 돼요."
+    },
+    {
+      "start": 786,
+      "time": "00:13:06",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "그 시간 봉은 1한시간 봉.",
+      "context_snippet": ">> 하루 단위에 타임프레임을 보는 짧은 그 시간 봉은 1한시간 봉. 일주일짜리의 타임프레임 안에서 보는"
+    },
+    {
+      "start": 828,
+      "time": "00:13:48",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 캔들 12시간 타임프레임이",
+      "context_snippet": ">> 네. 알겠습니다. 그러면은 이게 12시간 캔들 12시간 타임프레임이 한국에서 보통 태부분이"
+    },
+    {
+      "start": 832,
+      "time": "00:13:52",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "일하시잖아요.이 9시에 12시간",
+      "context_snippet": "한국에서 보통 태부분이 일하시잖아요.이 9시에 12시간 캔들이 열릴 거예요."
+    },
+    {
+      "start": 835,
+      "time": "00:13:55",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "캔들이 열릴 거예요.",
+      "context_snippet": "일하시잖아요.이 9시에 12시간 캔들이 열릴 거예요. >> 한국 시간으로 9시."
+    },
+    {
+      "start": 836,
+      "time": "00:13:56",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 한국 시간으로 9시.",
+      "context_snippet": "캔들이 열릴 거예요. >> 한국 시간으로 9시. >> 네.이 이 12시간 겐 로우"
+    },
+    {
+      "start": 837,
+      "time": "00:13:57",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 네.이 이 12시간 겐 로우",
+      "context_snippet": ">> 한국 시간으로 9시. >> 네.이 이 12시간 겐 로우 타임프레임은 낮은 시간프레임은이"
+    },
+    {
+      "start": 841,
+      "time": "00:14:01",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "30분이에요. 딱 보이시죠?이 이",
+      "context_snippet": "타임프레임은 낮은 시간프레임은이 30분이에요. 딱 보이시죠?이 이 30분 타임프레임 어느 12시간 캔"
+    },
+    {
+      "start": 842,
+      "time": "00:14:02",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "30분 타임프레임 어느 12시간 캔",
+      "context_snippet": "30분이에요. 딱 보이시죠?이 이 30분 타임프레임 어느 12시간 캔 보여 줄 거예요. 9시에 12시간"
+    },
+    {
+      "start": 845,
+      "time": "00:14:05",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "보여 줄 거예요. 9시에 12시간",
+      "context_snippet": "30분 타임프레임 어느 12시간 캔 보여 줄 거예요. 9시에 12시간 캔들이 열래요. 10시에 뉴욕 세션이"
+    },
+    {
+      "start": 847,
+      "time": "00:14:07",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "캔들이 열래요. 10시에 뉴욕 세션이",
+      "context_snippet": "보여 줄 거예요. 9시에 12시간 캔들이 열래요. 10시에 뉴욕 세션이 열려요.이"
+    },
+    {
+      "start": 850,
+      "time": "00:14:10",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 세션이 열릴 때 또 변동성이",
+      "context_snippet": "열려요.이 >> 세션이 열릴 때 또 변동성이 일어나니까 12시간 캔들이 열리면은이"
+    },
+    {
+      "start": 852,
+      "time": "00:14:12",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "일어나니까 12시간 캔들이 열리면은이",
+      "context_snippet": ">> 세션이 열릴 때 또 변동성이 일어나니까 12시간 캔들이 열리면은이 12시간 캔들 보고이 전략대로 분석해"
+    },
+    {
+      "start": 855,
+      "time": "00:14:15",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 캔들 보고이 전략대로 분석해",
+      "context_snippet": "일어나니까 12시간 캔들이 열리면은이 12시간 캔들 보고이 전략대로 분석해 보는이"
+    },
+    {
+      "start": 859,
+      "time": "00:14:19",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 로우 타임프레임 들어가서 30분",
+      "context_snippet": "보는이 >> 로우 타임프레임 들어가서 30분 통해서 진입하면 돼요."
+    },
+    {
+      "start": 861,
+      "time": "00:14:21",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "통해서 진입하면 돼요.",
+      "context_snippet": ">> 로우 타임프레임 들어가서 30분 통해서 진입하면 돼요. >> 아 그러면 그거에 예시한번한테 중"
+    },
+    {
+      "start": 867,
+      "time": "00:14:27",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "들어서 현재이 12시 오전 9시",
+      "context_snippet": "그려 줄 수 있는 오케이. 예를 들어서 현재이 12시 오전 9시 >> 이제 오후 9시 딱 열릴 거예요네."
+    },
+    {
+      "start": 870,
+      "time": "00:14:30",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 이제 오후 9시 딱 열릴 거예요네.",
+      "context_snippet": "들어서 현재이 12시 오전 9시 >> 이제 오후 9시 딱 열릴 거예요네. >> 그러면은 우리가이 30분 이거는"
+    },
+    {
+      "start": 873,
+      "time": "00:14:33",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 그러면은 우리가이 30분 이거는",
+      "context_snippet": ">> 이제 오후 9시 딱 열릴 거예요네. >> 그러면은 우리가이 30분 이거는 30분 타임프레임"
+    },
+    {
+      "start": 875,
+      "time": "00:14:35",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "30분 타임프레임",
+      "context_snippet": ">> 그러면은 우리가이 30분 이거는 30분 타임프레임 >> 이거는 현재이 12시간 캔들"
+    },
+    {
+      "start": 876,
+      "time": "00:14:36",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 이거는 현재이 12시간 캔들",
+      "context_snippet": "30분 타임프레임 >> 이거는 현재이 12시간 캔들 >> 예 최근 12시간 캔들이죠?네"
+    },
+    {
+      "start": 879,
+      "time": "00:14:39",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 예 최근 12시간 캔들이죠?네",
+      "context_snippet": ">> 이거는 현재이 12시간 캔들 >> 예 최근 12시간 캔들이죠?네 >> 이게 9시 열리잖아요. 이거를 하나"
+    },
+    {
+      "start": 881,
+      "time": "00:14:41",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 이게 9시 열리잖아요. 이거를 하나",
+      "context_snippet": ">> 예 최근 12시간 캔들이죠?네 >> 이게 9시 열리잖아요. 이거를 하나 둘 셋 넷"
+    },
+    {
+      "start": 884,
+      "time": "00:14:44",
+      "categories": [
+        "four_count_confirmation"
+      ],
+      "snippet": "둘 셋 넷",
+      "context_snippet": ">> 이게 9시 열리잖아요. 이거를 하나 둘 셋 넷 >> 음"
+    },
+    {
+      "start": 894,
+      "time": "00:14:54",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "여기죠. 그럼 지금 12시간 안에서",
+      "context_snippet": "들어갈 수 있었고 첫 번째 목표는 여기죠. 그럼 지금 12시간 안에서 30분 단위로 지금 여기 타이밍을"
+    },
+    {
+      "start": 896,
+      "time": "00:14:56",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "30분 단위로 지금 여기 타이밍을",
+      "context_snippet": "여기죠. 그럼 지금 12시간 안에서 30분 단위로 지금 여기 타이밍을 잡는 거예요."
+    },
+    {
+      "start": 903,
+      "time": "00:15:03",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "이거는 익스펜션잖아요.이 캔들이",
+      "context_snippet": "결국에는이 확창 단계에서 익스펜션 이거는 익스펜션잖아요.이 캔들이 열리고 고리 만들고 나서 이거는"
+    },
+    {
+      "start": 915,
+      "time": "00:15:15",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "진입하기 위해서 변한 깔끔한",
+      "context_snippet": "거예요. 그니까 치표는 좀 더 진입하기 위해서 변한 깔끔한 >> 베스트 깔끔한 그 지표예요."
+    },
+    {
+      "start": 926,
+      "time": "00:15:26",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "때 12시간 봉을 열어 놓고 전체 큰",
+      "context_snippet": "그러니까 이제 아침에 아시아장이 열릴 때 12시간 봉을 열어 놓고 전체 큰 시계열에서 가격을 본 다음에 30분"
+    },
+    {
+      "start": 929,
+      "time": "00:15:29",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "시계열에서 가격을 본 다음에 30분",
+      "context_snippet": "때 12시간 봉을 열어 놓고 전체 큰 시계열에서 가격을 본 다음에 30분 단위에서의 기준점을 아까 얘기한이"
+    },
+    {
+      "start": 934,
+      "time": "00:15:34",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": "평균을 설정하고 OT에 설정해서",
+      "context_snippet": "단위에서의 기준점을 아까 얘기한이 평균을 설정하고 OT에 설정해서 포지션 진입을 잡아라. 요게 아침"
+    },
+    {
+      "start": 937,
+      "time": "00:15:37",
+      "categories": [
+        "entry_trigger"
+      ],
+      "snippet": "포지션 진입을 잡아라. 요게 아침",
+      "context_snippet": "평균을 설정하고 OT에 설정해서 포지션 진입을 잡아라. 요게 아침 장이 열릴 때 아시아장 열릴 때"
+    },
+    {
+      "start": 946,
+      "time": "00:15:46",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "교육는 9시 오전 9시에 열리고",
+      "context_snippet": "그리고 뉴욕이잖아요. 니시 같은 교육는 9시 오전 9시에 열리고 12시간 하나 열리고 그리고 예."
+    },
+    {
+      "start": 949,
+      "time": "00:15:49",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 하나 열리고 그리고 예.",
+      "context_snippet": "교육는 9시 오전 9시에 열리고 12시간 하나 열리고 그리고 예. 저녁에 12시 이거를 사용하면 돼.이"
+    },
+    {
+      "start": 964,
+      "time": "00:16:04",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": ">> 어 그럼 오전에 아시아장 열릴 때",
+      "context_snippet": "시술이 아예 달라질 거. >> 어 그럼 오전에 아시아장 열릴 때 12시간 봉을 한쪽에 켜 놓고"
+    },
+    {
+      "start": 966,
+      "time": "00:16:06",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 봉을 한쪽에 켜 놓고",
+      "context_snippet": ">> 어 그럼 오전에 아시아장 열릴 때 12시간 봉을 한쪽에 켜 놓고 그다음에 30분 봉을 켜 놓고 거래를"
+    },
+    {
+      "start": 968,
+      "time": "00:16:08",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "그다음에 30분 봉을 켜 놓고 거래를",
+      "context_snippet": "12시간 봉을 한쪽에 켜 놓고 그다음에 30분 봉을 켜 놓고 거래를 하고 저녁에 다시 누역장 열릴 때 또"
+    },
+    {
+      "start": 974,
+      "time": "00:16:14",
+      "categories": [
+        "session_timeframe"
+      ],
+      "snippet": "12시간 봉을 켜 놓고 다시 30분",
+      "context_snippet": "하고 저녁에 다시 누역장 열릴 때 또 12시간 봉을 켜 놓고 다시 30분 단위로 타이밍을 잡으면 된다라고."
+    },
+    {
+      "start": 1092,
+      "time": "00:18:12",
+      "categories": [
+        "value_zone"
+      ],
+      "snippet": ">> 그것도 결국 0.5으로 돌아온다.",
+      "context_snippet": "디스밸런스이 큐을 맞추면서이 레어 >> 그것도 결국 0.5으로 돌아온다. 오예스 베이비."
+    }
+  ]
+}

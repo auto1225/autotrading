@@ -1,0 +1,28 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+state/
+.serena/
+
+# Runtime caches
+**/__pycache__/
+*.pyo
+*.pyd
+
+# Local paper-trading/runtime state is regenerated on start.
+*.sqlite3
+*.db
+
+# Keep text/JSON reports in git, but avoid large source media and screenshots.
+reports/**/*.mp4
+reports/**/*.m4a
+reports/**/*.wav
+reports/**/*.mp3
+reports/**/*.jpg
+reports/**/*.jpeg
+reports/**/*.png
+reports/**/*.webp
+reports/**/*.log

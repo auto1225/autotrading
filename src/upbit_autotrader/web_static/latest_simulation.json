@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "path": "state/range_simulation_20260404_to_20260505_0015.json",
+  "fileName": "range_simulation_20260404_to_20260505_0015.json",
+  "generatedAt": "2026-05-05T00:19:44.099978+09:00",
+  "modeLabel": "공격형 100% 복리",
+  "periodDays": "31.010647313414109",
+  "range": {
+    "startKst": "2026-04-04T00:00:00+09:00",
+    "endKst": "2026-05-05T00:15:19.927879+09:00",
+    "candleUnitMinutes": 5
+  },
+  "universe": {
+    "marketCount": 25,
+    "requestedMaxMarkets": 25,
+    "selectionMethod": "prior learning ranking, configured watchlist, then current KRW liquidity"
+  },
+  "assumptions": {
+    "startingCashKrw": "1000000",
+    "feeRate": "0.0005",
+    "historicalOrderbookIncluded": false,
+    "slippageIncluded": false,
+    "strategyScanStrideCandles": 3,
+    "historyLimitCandles": 240,
+    "maxDailyOrders": 1000000,
+    "maxOpenPositions": 1000000,
+    "maxPositionPct": "1",
+    "maxDeployPct": "1",
+    "maxOrderPct": "1"
+  },
+  "portfolio": {
+    "startEquityKrw": "1000000",
+    "finalEquityKrw": "1302746.308702014987195576709",
+    "totalReturnPct": "30.2746308702014987195576709",
+    "realizedPnlKrw": "289433.0293518344817804142543",
+    "feesPaidKrw": "184233.4168551034689753778963",
+    "orderCount": 331,
+    "maxDrawdownPct": "-18.34993378596103786539075986",
+    "openPositions": 1
+  },
+  "topStrategies": [
+    {
+      "market": "KRW-ZK",
+      "symbol": "ZK",
+      "koreanName": "",
+      "displayName": "ZK",
+      "strategy": "bollinger_band",
+      "strategyLabel": "볼린저밴드",
+      "score": "85.37777981818934287660796386",
+      "totalReturnPct": "91.7388504249415436257012675",
+      "maxDrawdownPct": "-8.278570164234154998605082531",
+      "orderCount": 129,
+      "finalEquityKrw": "1917388.504249415436257012675"
+    },
+    {
+      "market": "KRW-ZBT",
+      "symbol": "ZBT",
+      "koreanName": "",
+      "displayName": "ZBT",
+      "strategy": "donchian_channel",
+      "strategyLabel": "Donchian 채널",
+      "score": "81.07722962624879276874024438",
+      "totalReturnPct": "91.4450966797515002260953209",
+      "maxDrawdownPct": "-15.85825700538878070362319465",
+      "orderCount": 83,
+      "finalEquityKrw": "1914450.966797515002260953209"
+    },
+    {
+      "market": "KRW-ORBS",
+      "symbol": "ORBS",
+      "koreanName": "",
+      "displayName": "ORBS",
+      "strategy": "bollinger_band",
+      "strategyLabel": "볼린저밴드",
+      "score": "68.31536387069547641288856642",
+      "totalReturnPct": "71.5376185559920600094809261",
+      "maxDrawdownPct": "-4.74193028507166707168055336",
+      "orderCount": 87,
+      "finalEquityKrw": "1715376.185559920600094809261"
+    },
+    {
+      "market": "KRW-DKA",
+      "symbol": "DKA",
+      "koreanName": "",
+      "displayName": "DKA",
+      "strategy": "bollinger_band",
+      "strategyLabel": "볼린저밴드",
+      "score": "61.46484693762384265086778303",
+      "totalReturnPct": "65.4600944623763178983925355",
+      "maxDrawdownPct": "-5.346534653465346534653465332",
+      "orderCount": 106,
+      "finalEquityKrw": "1654600.944623763178983925355"
+    },
+    {
+      "market": "KRW-SOPH",
+      "symbol": "SOPH",
+      "koreanName": "",
+      "displayName": "SOPH",
+      "strategy": "bollinger_band",
+      "strategyLabel": "볼린저밴드",
+      "score": "59.96998052153423434796293739",
+      "totalReturnPct": "63.8405937104296866860924338",
+      "maxDrawdownPct": "-5.954789521377618981737686788",
+      "orderCount": 80,
+      "finalEquityKrw": "1638405.937104296866860924338"
+    }
+  ],
+  "riskNotes": {
+    "historicalOrderbookIncluded": false,
+    "slippageIncluded": false,
+    "feeRate": "0.0005"
+  }
+}
